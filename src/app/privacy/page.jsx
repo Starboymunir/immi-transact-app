@@ -29,8 +29,8 @@ const SecurityAndPrivacy = () => {
       <div className="immi-transact-is-thoroughly">
         Immi-Transact is thoroughly committed to protecting the privacy of our
         site visitors and customers. We fully appreciate and respect the
-        importance of privacy on the Internet. We respect each visitor's and
-        customer's right to personal privacy. To this end, we collect and use
+        importance of privacy on the Internet. We respect each visitors and
+        customers right to personal privacy. To this end, we collect and use
         information throughout our website only as disclosed in this Privacy
         Policy.
       </div>
