@@ -146,6 +146,9 @@ export default function HomePage() {
           </div>
         </div>
         <Reviews
+          className="frame-21"
+          
+          property1="review-1"
         />
 
         <div className="download-app">
