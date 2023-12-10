@@ -1,0 +1,146 @@
+@media only screen and (min-width: 780px) {
+.header {
+    height: 47px;
+    position: relative;
+    width: 1440px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    }
+    
+    .header .frame {
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 40px;
+    padding: 10px;
+    }
+    
+    .header .text-wrapper {
+    color: var(--black);
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    line-height: var(--body-text-line-height);
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .header .button {
+    all: unset;
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-4);
+    border-radius: 25px;
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+    height: 46px;
+    overflow: hidden;
+    padding: 6.4px 15px;
+    width: 454px;
+    margin: auto;
+    }
+    
+    .header .material-symbols {
+    height: 24px;
+    position: relative;
+    width: 24px;
+
+    
+    }
+    
+    .header .text {
+    color: var(--grey-2);
+    font-family: var(--small-text-font-family);
+    font-size: var(--small-text-font-size);
+    font-style: var(--small-text-font-style);
+    font-weight: var(--small-text-font-weight);
+    letter-spacing: var(--small-text-letter-spacing);
+    
+    line-height: var(--small-text-line-height);
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .header .div {
+    align-items: center;
+    display: inline-flex;
+    gap: 24px;
+    margin: auto;
+    }
+    
+    .header .memory-message {
+    height: 28px;
+    position: relative;
+    width: 28px;
+    }
+    
+    .header .img {
+    height: 32px;
+    position: relative;
+    width: 32px;
+    }
+    
+    .header .mask-group {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    }
+    
+    .header .layer {
+    height: 17px;
+    width: 172px;
+    margin: auto;
+    }
+    .profile-pic{
+    width: 40px;
+    height:40px; 
+    border-radius: 100%;
+    object-fit: cover;
+    border: 1px solid black;
+    box-sizing: border-box;
+    overflow: hidden;
+     
+   }
+   .header-mobile{
+    display: none;
+   }
+    
+}
+@media only screen and (max-width: 600px) {
+.header{
+    display: none;
+}
+.frame-2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+ }
+
+ .frame-2-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .frame-2-right {
+    display: flex;
+ }
+
+ .layer {
+    height: 13px;
+    padding: auto;
+ }
+
+
+
+}

@@ -1,0 +1,405 @@
+@media only screen and (max-width: 600px) {
+.menu {
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    display: flex;
+    width: 45px;
+    padding:10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    justify-content: space-between;
+    object-fit: contain;
+
+    
+    }
+    .menu-default{
+        align-items: center;
+        background-color: var(--white);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 0px 0px 16px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 30vw;
+        opacity: 1;
+        height: 200px;
+        box-sizing: border-box;
+        justify-content: space-evenly;
+        z-index: 10;
+
+    }
+    .asset{
+        width: 126px;
+    }
+    
+    .menu .line {
+    height: 2px;
+    margin-top: -1px;
+    object-fit: cover;
+    position: relative;
+    width: 25px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+   
+    }
+    
+    .menu .img {
+    height: 2px;
+    object-fit: cover;
+    position: relative;
+    width: 25px;
+    margin-top: -1px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    
+    }
+    
+    .menu .material-symbols {
+    height: 24px;
+    position: relative;
+    width: 24px;
+    }
+    
+    .menu .text-wrapper {
+    color: var(--black);
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .menu .div {
+    color: var(--black);
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .menu .text-wrapper-2 {
+    color: var(--black);
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .menu.contact-us-hover {
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: inline-flex;
+    gap: 24px;
+    justify-content: center;
+    padding: 10px;
+    }
+    
+    .menu.home-hover {
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: inline-flex;
+    gap: 24px;
+    justify-content: center;
+    padding: 10px;
+    }
+    
+    .menu.abous-us-hover {
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: inline-flex;
+    gap: 24px;
+    justify-content: center;
+    padding: 10px;
+    }
+    
+    .menu.hover {
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    padding: 10px;
+    width: 107px;
+    height: 150px;
+    }
+    
+    .menu.default {
+    display: inline-flex;
+    gap: 8px;
+    }
+    
+    .menu.contact-us-hover .text-wrapper {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    }
+    
+    .menu.home-hover .text-wrapper {
+    font-family: var(--body-bold-font-family);
+    font-size: var(--body-bold-font-size);
+    font-style: var(--body-bold-font-style);
+    font-weight: var(--body-bold-font-weight);
+    letter-spacing: var(--body-bold-letter-spacing);
+    
+    line-height: var(--body-bold-line-height);
+    }
+    
+    .menu.abous-us-hover .text-wrapper {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    }
+    
+    .menu.hover .text-wrapper {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    }
+    
+    .menu.default .text-wrapper {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    }
+    
+    .menu.contact-us-hover .div {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    }
+    
+    .menu.home-hover .div {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    }
+    
+    .menu.abous-us-hover .div {
+    font-family: var(--body-bold-font-family);
+    font-size: var(--body-bold-font-size);
+    font-style: var(--body-bold-font-style);
+    font-weight: var(--body-bold-font-weight);
+    letter-spacing: var(--body-bold-letter-spacing);
+    
+    line-height: var(--body-bold-line-height);
+    }
+    
+    .menu.hover .div {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    }
+    
+    .menu.default .div {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    }
+    
+    .menu.contact-us-hover .text-wrapper-2 {
+    font-family: var(--body-bold-font-family);
+    font-size: var(--body-bold-font-size);
+    font-style: var(--body-bold-font-style);
+    font-weight: var(--body-bold-font-weight);
+    letter-spacing: var(--body-bold-letter-spacing);
+    
+    line-height: var(--body-bold-line-height);
+    }
+    
+    .menu.home-hover .text-wrapper-2 {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    }
+    
+    .menu.abous-us-hover .text-wrapper-2 {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    }
+    
+    .menu.hover .text-wrapper-2 {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    }
+    
+    .menu.default .text-wrapper-2 {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    }
+    .open-other-pages {
+        align-items: center;
+        background-color: var(--hover);
+        display: flex;
+        flex-direction: column;
+        height: 800px;
+        padding: 0px 0px 16px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 50vw;
+        opacity: 1;
+        box-sizing: border-box;
+        justify-content: space-between;
+        z-index: 10;
+      }
+      
+      .open-other-pages .menu-frame {
+        align-items: flex-start;
+        display: inline-flex;
+        flex-direction: column;
+        height: 80%;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+      }
+      
+      .open-other-pages .menu-div {
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+        border-bottom-style: solid;
+        border-bottom-width: 0.5px;
+        border-color: var(--grey-1);
+        display: flex;
+        flex: 0 0 auto;
+        padding: 10px;
+        position: relative;
+        width: 100%;
+        height: 10%;
+        box-sizing: border-box;
+      }
+      
+      .open-other-pages .material-symbols {
+        height: 24px;
+        position: relative;
+        width: 24px;
+        box-sizing: border-box;
+      }
+      
+      .open-other-pages .menu-frame-2 {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 auto;
+        flex-direction: column;
+        position: relative;
+        box-sizing: border-box;
+        height: 80%;
+        width: 100%;
+      }
+      
+      .open-other-pages .div-wrapper {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 0.5px;
+        border-color: var(--grey-1);
+        display: flex;
+        flex: 0 0 auto;
+        gap: 10px;
+        padding: 10px 16px;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      
+      .open-other-pages .text-wrapper {
+        color: var(--black);
+        font-family: var(--small-text-font-family);
+        font-size: var(--small-text-font-size);
+        font-style: var(--small-text-font-style);
+        font-weight: var(--small-text-font-weight);
+        letter-spacing: var(--small-text-letter-spacing);
+        line-height: var(--small-text-line-height);
+        margin-top: -0.5px;
+        position: relative;
+        white-space: nowrap;
+        width: fit-content;
+        box-sizing: border-box;
+      }
+      
+      .open-other-pages .menu-frame-3 {
+        align-items: center;
+        display: inline-flex;
+        flex: 0 0 auto;
+        gap: 10px;
+        justify-content: center;
+        padding: 10px;
+        position: relative;
+        box-sizing: border-box;
+      }
+      
+      .open-other-pages .text-wrapper-2 {
+        color: var(--black);
+        font-family: var(--small-text-font-family);
+        font-size: var(--small-text-font-size);
+        font-style: var(--small-text-font-style);
+        font-weight: var(--small-text-font-weight);
+        letter-spacing: var(--small-text-letter-spacing);
+        line-height: var(--small-text-line-height);
+        margin-top: -1px;
+        position: relative;
+        white-space: nowrap;
+        width: fit-content;
+        box-sizing: border-box;
+      }
+    }
+
+    @media only screen and (min-width: 780px) {
+        .menu{
+            display: none;
+        }
+   
+    }

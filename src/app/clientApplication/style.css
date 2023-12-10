@@ -1,0 +1,490 @@
+@media only screen and (min-width: 780px) {
+.client-application {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    }
+    
+    .client-application .div-2 {
+    background-color: var(--white);
+    height: 2013px;
+    position: relative;
+    width: 1440px;
+    }
+    
+    .client-application .homepage-footer {
+    left: 100px !important;
+    position: absolute !important;
+    top: 1643px !important;
+    }
+    
+    .client-application .header-instance {
+    background-color: transparent !important;
+    left: 100px !important;
+    position: absolute !important;
+    top: 35px !important;
+    }
+    
+    .client-application .text-wrapper-5 {
+    color: #000000;
+    font-family: var(--header-2-font-family);
+    font-size: var(--header-2-font-size);
+    font-style: var(--header-2-font-style);
+    font-weight: var(--header-2-font-weight);
+    left: 527px;
+    letter-spacing: var(--header-2-letter-spacing);
+    
+    line-height: var(--header-2-line-height);
+    position: absolute;
+    top: 181px;
+    white-space: nowrap;
+    }
+    
+    .client-application .frame-6 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    left: 100px;
+    padding: 25px 15px;
+    position: absolute;
+    top: 329px;
+    width: 1240px;
+    }
+    
+    .client-application .frame-7 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 46px;
+    position: relative;
+    }
+    
+    .client-application .img-2 {
+    height: 36px;
+    object-fit: cover;
+    position: relative;
+    width: 36px;
+    }
+    
+    .client-application .text-wrapper-6 {
+    color: #000000;
+    font-family: var(--subtitle-font-family);
+    font-size: var(--subtitle-font-size);
+    font-style: var(--subtitle-font-style);
+    font-weight: var(--subtitle-font-weight);
+    letter-spacing: var(--subtitle-letter-spacing);
+    
+    line-height: var(--subtitle-line-height);
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .client-application .rectangle {
+    border: 1px solid;
+    border-color: var(--grey-4);
+    height: 24px;
+    position: relative;
+    width: 24px;
+    }
+    
+    .client-application .frame-8 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    left: 100px;
+    padding: 25px 15px;
+    position: absolute;
+    top: 455px;
+    width: 1240px;
+    }
+    
+    .client-application .frame-9 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    left: 100px;
+    padding: 25px 15px;
+    position: absolute;
+    top: 581px;
+    width: 1240px;
+    }
+    
+    .client-application .rectangle-wrapper {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 46px;
+    justify-content: center;
+    position: relative;
+    }
+    
+    .client-application .frame-10 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    left: 100px;
+    padding: 25px 15px;
+    position: absolute;
+    top: 707px;
+    width: 1240px;
+    }
+    
+    .client-application .frame-11 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    left: 100px;
+    padding: 25px 15px;
+    position: absolute;
+    top: 959px;
+    width: 1240px;
+    }
+    
+    .client-application .frame-12 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    left: 100px;
+    padding: 25px 15px;
+    position: absolute;
+    top: 1085px;
+    width: 1240px;
+    }
+    
+    .client-application .frame-13 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    left: 100px;
+    padding: 25px 15px;
+    position: absolute;
+    top: 1211px;
+    width: 1240px;
+    }
+    
+    .client-application .frame-14 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    left: 100px;
+    padding: 25px 15px;
+    position: absolute;
+    top: 833px;
+    width: 1240px;
+    }
+    
+    .client-application .div-wrapper {
+    align-items: center;
+    display: flex;
+    gap: 46px;
+    justify-content: flex-end;
+    position: relative;
+    width: 468px;
+    }
+    
+    .client-application .button-3 {
+    background-color: var(--grey-1) ;
+    display: flex !important;
+    left: 616px !important;
+    position: absolute !important;
+    top: 1397px !important;
+    width: 209px !important;
+    }
+    .client-application .button-3-active {
+    background-color: black;
+    }
+    .selected-rectangle .rectangle{
+        background-color: black;
+   
+ 
+  }
+
+
+        
+.homepage-footer{
+    display: none;
+}
+}
+
+@media only screen and (max-width: 600px) {
+    
+
+.homepage-footer{
+    display: none;
+}
+
+.client-application {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    }
+    .application-content {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    }
+    
+    .client-application .div-2 {
+    background-color: #ffffff;
+    height: 900px;
+    position: relative;
+    width: 430px;
+    }
+
+    
+    .client-application .group {
+    height: 32px;
+    left: 24px;
+    position: absolute;
+    top: 24px;
+    width: 362px;
+    }
+    
+    .client-application .text-wrapper-5{
+    color: var(--black);
+    font-family: var(--header-3-font-family);
+    font-size: var(--header-3-font-size);
+    font-style: var(--header-3-font-style);
+    font-weight: var(--header-3-font-weight);
+    letter-spacing: var(--header-3-letter-spacing);
+    line-height: var(--header-3-line-height);
+    white-space: nowrap;
+    }
+    
+    .client-application .frame-6 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    gap: 71px;
+
+    padding: 10px 15px;
+
+    width: 362px;
+    }
+    
+    .client-application .frame-7 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 16px;
+    position: relative;
+    }
+    
+    .client-application .img-2 {
+    height: 18px;
+    object-fit: cover;
+    position: relative;
+    width: 18px;
+    }
+    
+    .client-application .text-wrapper-6{
+    color: var(--black);
+    font-family: var(--body-medium-m-font-family);
+    font-size: var(--body-medium-m-font-size);
+    font-style: var(--body-medium-m-font-style);
+    font-weight: var(--body-medium-m-font-weight);
+    letter-spacing: var(--body-medium-m-letter-spacing);
+    
+    line-height: var(--body-medium-m-line-height);
+    margin-top: -1px;
+    position: relative;
+    width: 214px;
+    }
+    
+    .client-application .rectangle-wrapper {
+    border: 1px solid;
+    border-color: var(--grey-4);
+    height: 16px;
+    position: relative;
+    width: 16px;
+    }
+    
+    .client-application .frame-8 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    gap: 61px;
+    padding: 10px 15px;
+
+    width: 362px;
+    }
+    
+    .client-application .frame-7 {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+    position: relative;
+    width: 258px;
+    }
+    
+    .client-application .text-wrapper-6 {
+    color: var(--black);
+    font-family: var(--body-medium-m-font-family);
+    font-size: var(--body-medium-m-font-size);
+    font-style: var(--body-medium-m-font-style);
+    font-weight: var(--body-medium-m-font-weight);
+    letter-spacing: var(--body-medium-m-letter-spacing);
+    
+    line-height: var(--body-medium-m-line-height);
+    margin-right: -37px;
+    margin-top: -1px;
+    position: relative;
+    width: 261px;
+    }
+    
+    .client-application .frame-9 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    gap: 61px;
+    left: 24px;
+    padding: 10px 15px;
+    width: 362px;
+    }
+
+    
+    .client-application .frame-10 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    gap: 61px;
+    padding: 10px 15px;
+    width: 362px;
+    }
+    
+    .client-application .p {
+    color: var(--black);
+    font-family: var(--body-medium-m-font-family);
+    font-size: var(--body-medium-m-font-size);
+    font-style: var(--body-medium-m-font-style);
+    font-weight: var(--body-medium-m-font-weight);
+    letter-spacing: var(--body-medium-m-letter-spacing);
+    
+    line-height: var(--body-medium-m-line-height);
+    margin-right: -7px;
+    margin-top: -1px;
+    position: relative;
+    width: 231px;
+    }
+    
+    .client-application .frame-11 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    gap: 61px;
+    padding: 10px 15px;
+    width: 362px;
+    }
+    
+    .client-application .text-wrapper-5 {
+    color: var(--black);
+    font-family: var(--body-medium-m-font-family);
+    font-size:24px;
+    text-align: center;
+    font-style: var(--body-medium-m-font-style);
+    font-weight:700;
+    margin: 5%;
+    letter-spacing: var(--body-medium-m-letter-spacing);
+    
+    line-height: var(--body-medium-m-line-height);
+    margin-top: -1px;
+    position: relative;
+    width: 224px;
+    }
+    
+    .client-application .frame-12 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    gap: 61px;
+    padding: 10px 15px;
+
+    width: 362px;
+    }
+    
+    .client-application .frame-13 {
+    align-items: center;
+    border: 0.5px solid;
+    border-color: var(--grey-2);
+    border-radius: 10px;
+    display: flex;
+    gap: 61px;
+
+    padding: 10px 15px;
+    width: 362px;
+    }
+    .client-application .frame-14 {
+        align-items: center;
+        border: 0.5px solid;
+        border-color: var(--grey-2);
+        border-radius: 10px;
+        display: flex;
+        gap: 61px;
+        box-sizing: content-box;
+        padding: 10px 15px;
+        width: 362px;
+        }
+        .my-frame{
+            margin: auto;
+        }
+
+    .homepage-footer{
+        position: absolute;
+        top: 1150px;
+    }
+    
+    /* .client-application .button-instance {
+    background-color: var(--grey-1) !important;
+    display: flex !important;
+    left: 111px !important;
+    position: absolute !important;
+    top: 732px !important;
+    width: 209px !important;
+    } */
+}
+    

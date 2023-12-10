@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+
+
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+html{
+  padding: 0;
+}
+:root {
+    --ant-design-colour-styleshitbox: rgba(255, 255, 255, 0);
+    --black: rgba(0, 0, 0, 1);
+    --body-bold-font-family:  "Work Sans", sans-serif;
+    --body-bold-font-size: 1rem;
+    --body-bold-font-style: normal;
+    --body-bold-font-weight: 700;
+    --body-bold-letter-spacing: 0px;
+    --body-bold-line-height: normal;
+    --body-text-font-family:  "Work Sans", sans-serif;
+    --body-text-font-size: 1rem;
+    --body-text-font-style: normal;
+    --body-text-font-weight: 500;
+    --body-text-letter-spacing: 0px;
+    --body-text-line-height: 139.9999976158142%;
+    --button-text-font-family:  "Work Sans", sans-serif;
+    --button-text-font-size: 1rem;
+    --button-text-font-style: normal;
+    --button-text-font-weight: 700;
+    --button-text-letter-spacing: 0.64px;
+    --button-text-line-height: normal;
+    --drop-shadow-button-primary: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    --grey-1: rgba(162, 166, 167, 1);
+    --grey-2: rgba(114, 114, 114, 1);
+    --grey-3: rgba(74, 74, 74, 1);
+    --grey-4: rgba(44, 45, 44, 1);
+    --header-1-font-family:  "Work Sans", sans-serif;
+    --header-1-font-size: 64px;
+    --header-1-font-style: normal;
+    --header-1-font-weight: 700;
+    --header-1-letter-spacing: -1.28px;
+    --header-1-line-height: normal;
+    --header-2-font-family:  "Work Sans", sans-serif;
+    --header-2-font-size: 40px;
+    --header-2-font-style: normal;
+    --header-2-font-weight: 700;
+    --header-2-letter-spacing: -0.8px;
+    --header-2-line-height: normal;
+    --header-3-font-family:  "Work Sans", sans-serif;
+    --header-3-font-size: 24px;
+    --header-3-font-style: normal;
+    --header-3-font-weight: 700;
+    --header-3-letter-spacing: -0.48px;
+    --header-3-line-height: normal;
+    --hover: rgba(241, 242, 242, 1);
+    --link-text-font-family:  "Work Sans", sans-serif;
+    --link-text-font-size: 1rem;
+    --link-text-font-style: normal;
+    --link-text-font-weight: 700;
+    --link-text-letter-spacing: 0px;
+    --link-text-line-height: normal;
+    --pre-title-font-family:  "Work Sans", sans-serif;
+    --pre-title-font-size: 12px;
+    --pre-title-font-style: normal;
+    --pre-title-font-weight: 700;
+    --pre-title-letter-spacing: 0.36px;
+    --pre-title-line-height: normal;
+    --small-text-font-family:  "Work Sans", sans-serif;
+    --small-text-font-size: 12px;
+    --small-text-font-style: normal;
+    --small-text-font-weight: 500;
+    --small-text-letter-spacing: 0px;
+    --small-text-line-height: 139.9999976158142%;
+    --subtitle-font-family:  "Work Sans", sans-serif;
+    --subtitle-font-size: 24px;
+    --subtitle-font-style: normal;
+    --subtitle-font-weight: 500;
+    --subtitle-letter-spacing: 0px;
+    --subtitle-line-height: normal;
+    --white: rgba(255, 255, 255, 1);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --foreground-rgb: 255, 255, 255;
+      --background-start-rgb: 0, 0, 0;
+      --background-end-rgb: 0, 0, 0;
+    }
+  }
+
+.button {
+    all: unset;
+    align-items: center;
+    border-radius: 25px;
+    box-sizing: border-box;
+    display: inline-flex;
+    gap: 10px;
+    height: 46px;
+    justify-content: center;
+    overflow: hidden;
+    padding: 6.4px 15px;
+    position: relative;
+  }
+  
+  .button .text {
+    font-family: var(--button-text-font-family);
+    font-size: var(--button-text-font-size);
+    font-style: var(--button-text-font-style);
+    font-weight: var(--button-text-font-weight);
+    letter-spacing: var(--button-text-letter-spacing);
+    line-height: var(--button-text-line-height);
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .button.secondary,
+  .button.link,
+  .button.primary-hover,
+  .button.primary,
+  .button.white-primary-hover,
+  .button.secondary-hover {
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.11);
+  }
+  
+  .button.secondary {
+    border: 1px solid var(--grey-4);
+  }
+  .button.secondary.class-2{
+    border: 1px solid white;
+    color: white;
+  }
+  .button.secondary.class-2 .text{
+    color: white;
+  }
+  .button.link .text,
+  .button.secondary .text,
+  .button.white-primary-hover .text,
+  .button.secondary-hover .text {
+    color: var(--black);
+  }
+  
+  .button.primary-hover,
+  .button.primary {
+    background-color: var(--black);
+    color: var(--hover);
+  }
+  
+  .button.white-primary-hover {
+    border: 1px solid var(--hover);
+  }
+  
+  .button.secondary-hover {
+    background-color: var(--hover);
+    border: 1px solid var(--hover);
+  }
+  
+  .button.secondary-hover .text {
+    color: var(--grey-3);
+  }
+  

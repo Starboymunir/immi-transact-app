@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+@media only screen and (min-width: 780px) {
+.group {
+    height: 187px;
+    width: 310px;
+    border-radius:10px;
+    border: 1px solid rgb(200, 200, 200);
+    }
+    .group .overlap-group {
+    border-radius: 7.77px;
+    height: 187px;
+    position: relative;
+    }
+    
+    .group .layers-edit {
+    height: 25px;
+    left: 31px;
+    position: absolute;
+    top: 48px;
+    width: 25px;
+    }
+    .group .face-agent {
+        height: 25px;
+        left: 31px;
+        position: absolute;
+        top: 48px;
+        width: 25px;
+        }
+    
+    .group .ellipse {
+    border: 1.17px solid;
+    border-color: var(--grey-1);
+    border-radius: 7.77px/7.79px;
+    height: 16px;
+    left: 275px;
+    position: absolute;
+    top: 19px;
+    width: 16px;
+    background-color: aliceblue;
+    }
+     .group .ellipse.clicked {
+        background-color: black;
+      }
+
+    
+    .group .text-wrapper {
+    
+    color: var(--black);
+    font-family: var(--header-3-font-family);
+    
+    font-size: 18.6px;
+    font-weight: 500;
+    left: 31px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 100px;
+    width: 231px;
+    }
+    
+    .group .rectangle {
+    border-radius: 7.77px;
+    height: 187px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 310px;
+    
+    }
+    
+    .group .default-att-card {
+    border: 1px solid;
+    border-color: var(--grey-1);
+    }
+    
+    .group .hover-att-card {
+    border: 2px solid;
+    border-color: var(--black);
+    }
+}
+@media only screen and (max-width: 600px) {
+    .group {
+        height: 144px;
+        width: 310px;
+        border-radius:10px;
+        border: 1px solid rgb(200, 200, 200);
+        }
+        .group .overlap-group {
+        border-radius: 7.77px;
+        height: 144px;
+        position: relative;
+        }
+        
+        .group .layers-edit {
+        height: 25px;
+        width: 25px;
+        margin-left: 17px;
+        margin-top: 12px;
+        margin-bottom: 26px;
+        }
+        .group .face-agent {
+            height: 25px;
+            width: 25px;
+            margin-left: 17px;
+            margin-top: 12px;
+            margin-bottom: 26px;
+            }
+        
+        .group .ellipse {
+        border: 1.17px solid;
+        border-color: var(--grey-1);
+        border-radius: 7.77px/7.79px;
+        width: 16px;
+        background-color: aliceblue;
+        align-self: end;
+        }
+         .group .ellipse.clicked {
+            background-color: black;
+          }
+    
+        
+        .group .text-wrapper {
+        
+        color: var(--black);
+        font-family: var(--header-3-font-family);
+        
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: normal;
+        width: 100%;
+        padding: auto;
+        text-align: center;
+        }
+        
+        .group .rectangle {
+        border-radius: 7.77px;
+        height: 144px;
+        width: 310px;
+        display: flex;
+        flex-direction: column;
+            
+        
+        }
+        
+        .group .default-att-card {
+        border: 1px solid;
+        border-color: var(--grey-1);
+        }
+        
+        .group .hover-att-card {
+        border: 2px solid;
+        border-color: var(--black);
+        }
+
+}

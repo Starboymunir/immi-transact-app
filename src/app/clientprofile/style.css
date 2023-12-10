@@ -1,0 +1,713 @@
+@media only screen and (min-width: 780px) {
+.client-profile {
+    background-color: #f1f2f2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    }
+    
+    .client-profile .div-2 {
+    background-color: var(--hover);
+    height: 1376px;
+    position: relative;
+    width: 1440px;
+    }
+    
+    .client-profile .header-instance {
+    background-color: transparent !important;
+    left: 100px !important;
+    position: absolute !important;
+    top: 35px !important;
+    }
+    
+    .client-profile .text-wrapper-2 {
+    color: #000000;
+    font-family: var(--header-2-font-family);
+    font-size: var(--header-2-font-size);
+    font-style: var(--header-2-font-style);
+    font-weight: var(--header-2-font-weight);
+    left: 656px;
+    letter-spacing: var(--header-2-letter-spacing);
+    line-height: var(--header-2-line-height);
+    position: absolute;
+    top: 181px;
+    white-space: nowrap;
+    }
+    
+    .client-profile .frame-3 {
+    align-items: flex-start;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    left: 450px;
+    padding: 20px 25px;
+    position: absolute;
+    top: 535px;
+    width: 890px;
+    }
+    
+    .client-profile .text-wrapper-3 {
+    color: #000000;
+    font-family: var(--header-3-font-family);
+    font-size: var(--header-3-font-size);
+    font-style: var(--header-3-font-style);
+    font-weight: var(--header-3-font-weight);
+    letter-spacing: var(--header-3-letter-spacing);
+    line-height: var(--header-3-line-height);
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .client-profile .frame-4 {
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    gap: 27px;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: 690px;
+    }
+    
+    .client-profile .button-instance {
+    flex: 0 0 auto !important;
+    }
+    
+    .client-profile .frame-5 {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 64px;
+    padding: 40px;
+    position: absolute;
+    top: 263px;
+    }
+    
+    .client-profile .frame-6 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    }
+    
+    .client-profile .frame-7 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    }
+    
+    .client-profile .group {
+    background-image: url(./pexels-photo-by-daniel-xavier.png);
+    background-size: 100% 100%;
+    height: 150px;
+    position: relative;
+    width: 150px;
+    border-radius: 100%;
+    }
+    
+    .client-profile .ic-baseline-plus {
+    height: 32px;
+    left: 99px;
+    position: absolute;
+    top: 118px;
+    width: 32px;
+    }
+    
+    .client-profile .text-wrapper-4 {
+    color: #000000;
+    font-family: var(--header-3-font-family);
+    font-size: var(--header-3-font-size);
+    font-style: var(--header-3-font-style);
+    font-weight: var(--header-3-font-weight);
+    letter-spacing: var(--header-3-letter-spacing);
+    line-height: var(--header-3-line-height);
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .client-profile .text-wrapper-5 {
+    color: #000000;
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .client-profile .frame-8 {
+    align-items: flex-start;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    left: 450px;
+    padding: 20px 25px;
+    position: absolute;
+    top: 263px;
+    width: 890px;
+    }
+    
+    .client-profile .p {
+    color: #000000;
+    font-family: "Work Sans-Medium", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 22.4px;
+    margin-right: -10px;
+    position: relative;
+    width: 850px;
+    }
+    
+    .client-profile .frame-9 {
+    align-items: flex-start;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 20px 25px;
+    position: absolute;
+    top: 773px;
+    width: 1340px;
+    }
+    
+    .client-profile .text-wrapper-6 {
+    color: var(--grey-4);
+    font-family: var(--header-3-font-family);
+    font-size: var(--header-3-font-size);
+    font-style: var(--header-3-font-style);
+    font-weight: var(--header-3-font-weight);
+    letter-spacing: var(--header-3-letter-spacing);
+    line-height: var(--header-3-line-height);
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .client-profile .frame-10 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+    }
+    
+    .client-profile .frame-11 {
+    align-items: flex-start;
+    display: flex;
+    gap: 16px;
+   
+    position: relative;
+    width: 1175.03px;
+    }
+    .ellipse-div{
+    height: 65px;
+    width: 65px;
+    border: 1px solid white;
+    border-radius: 65px;
+    object-fit: cover;
+    overflow: hidden;
+    }
+    
+    .client-profile .ellipse {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    }
+    
+    .client-profile .frame-12 {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 16px;
+    position: relative;
+    }
+    
+    .client-profile .frame-13 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    }
+    
+    .client-profile .text-wrapper-7 {
+    color: var(--grey-4);
+    font-family: var(--subtitle-font-family);
+    font-size: var(--subtitle-font-size);
+    font-style: var(--subtitle-font-style);
+    font-weight: var(--subtitle-font-weight);
+    letter-spacing: var(--subtitle-letter-spacing);
+    line-height: var(--subtitle-line-height);
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .client-profile .text-wrapper-8 {
+    color: #000000;
+    font-family: var(--small-text-font-family);
+    font-size: var(--small-text-font-size);
+    font-style: var(--small-text-font-style);
+    font-weight: var(--small-text-font-weight);
+    letter-spacing: var(--small-text-letter-spacing);
+    
+    line-height: var(--small-text-line-height);
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .client-profile .frame-14 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 8px;
+    position: relative;
+    }
+    
+    .client-profile .frame-15 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 7.12px;
+    justify-content: center;
+    padding: 7.12px 7.12px 7.12px 0px;
+    position: relative;
+    }
+    
+    .client-profile .frame-16 {
+    flex: 0 0 auto;
+    position: relative;
+    }
+    
+    .client-profile .text-wrapper-9 {
+    color: var(--grey-4);
+    font-family: "Work Sans-Medium", Helvetica;
+    font-size: 17.1px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .client-profile .line {
+    height: 25px;
+    object-fit: cover;
+    position: relative;
+    width: 1px;
+    }
+    
+    .client-profile .text-wrapper-10 {
+    color: var(--grey-3);
+    font-family: var(--small-text-font-family);
+    font-size: var(--small-text-font-size);
+    font-style: var(--small-text-font-style);
+    font-weight: var(--small-text-font-weight);
+    letter-spacing: var(--small-text-letter-spacing);
+    
+    line-height: var(--small-text-line-height);
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    }
+    
+    .client-profile .text-wrapper-11 {
+    align-self: stretch;
+    color: var(--grey-4);
+    flex: 1;
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    
+    line-height: var(--body-text-line-height);
+    position: relative;
+    }
+    
+    .client-profile .line-2 {
+    height: 1px;
+    position: relative;
+    width: 1175.04px;
+    }
+    .div{
+        display: none;
+    }
+}
+ @media only screen and (max-width: 600px) {
+
+    .client-profile {
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        }
+        
+        .client-profile .div {
+        background-color: var(--white);
+        height: 1642px;
+        position: relative;
+        width: 430px;
+        }
+        
+        .client-profile .group {
+        height: 32px;
+        left: 24px;
+        position: absolute;
+        top: 24px;
+        width: 382px;
+        }
+        
+        .client-profile .mobile-header {
+        height: 16px;
+        left: 0;
+        position: absolute;
+        top: 8px;
+        width: 167px;
+        }
+        
+        .client-profile .frame-435 {
+        left: 0 !important;
+        position: absolute !important;
+        top: 0 !important;
+        }
+        
+        .client-profile .asset {
+        height: 13px;
+        left: 44px;
+        position: absolute;
+        top: 2px;
+        width: 123px;
+        }
+        
+        .client-profile .material-symbols-2 {
+        height: 32px;
+        left: 351px;
+        position: absolute;
+        top: 0;
+        width: 31px;
+        }
+        
+        .client-profile .frame-29 {
+        align-items: center;
+        display: inline-flex;
+        flex-direction: column;
+        gap: 16px;
+        left: 78px;
+        position: absolute;
+        top: 96px;
+        }
+        
+        .client-profile .frame-3 {
+        align-items: center;
+        display: inline-flex;
+        flex: 0 0 auto;
+        flex-direction: column;
+        gap: 24px;
+        position: relative;
+        }
+        
+        .client-profile .ic-baseline-plus-wrapper {
+        background-image: url(./pexels-photo-by-daniel-xavier.png);
+        background-size: 100% 100%;
+        height: 122px;
+        position: relative;
+        width: 122px;
+        border-radius: 100%;
+        }
+        
+        .client-profile .ic-baseline-plus {
+        height: 26px;
+        left: 81px;
+        position: absolute;
+        top: 96px;
+        width: 26px;
+        }
+        
+        .client-profile .text-wrapper-2 {
+        color: #000000;
+        font-family: var(--header-3-font-family);
+        font-size: var(--header-3-font-size);
+        font-style: var(--header-3-font-style);
+        font-weight: var(--header-3-font-weight);
+        letter-spacing: var(--header-3-letter-spacing);
+        line-height: var(--header-3-line-height);
+        position: relative;
+        text-align: center;
+        white-space: nowrap;
+        width: fit-content;
+        }
+        
+        .client-profile .text-wrapper-3 {
+        color: #000000;
+        font-family: var(--body-text-font-family);
+        font-size: var(--body-text-font-size);
+        font-style: var(--body-text-font-style);
+        font-weight: var(--body-text-font-weight);
+        letter-spacing: var(--body-text-letter-spacing);
+        line-height: var(--body-text-line-height);
+        position: relative;
+        text-align: center;
+        white-space: nowrap;
+        width: fit-content;
+        }
+        
+        .client-profile .frame-4 {
+        align-items: flex-start;
+        background-color: var(--hover);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      
+        padding: 20px 16px;
+        position: absolute;
+        top: 410px;
+        width: 382px;
+        box-sizing: border-box;
+        }
+        
+        .client-profile .text-wrapper-4 {
+        align-self: stretch;
+        color: #000000;
+        font-family: var(--header-3-font-family);
+        font-size: var(--header-3-font-size);
+        font-style: var(--header-3-font-style);
+        font-weight: var(--header-3-font-weight);
+        letter-spacing: var(--header-3-letter-spacing);
+        line-height: var(--header-3-line-height);
+        margin-top: -1px;
+        position: relative;
+        }
+        
+        .client-profile .p {
+        align-self: stretch;
+        color: var(--grey-4);
+        font-family: var(--body-medium-r-font-family);
+        font-size: var(--body-medium-r-font-size);
+        font-style: var(--body-medium-r-font-style);
+        font-weight: var(--body-medium-r-font-weight);
+        letter-spacing: var(--body-medium-r-letter-spacing);
+        
+        line-height: var(--body-medium-r-line-height);
+        position: relative;
+        }
+        
+        .client-profile .frame-5 {
+        align-items: flex-start;
+        background-color: var(--hover);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 8px 20px 16px;
+        position: absolute;
+        top: 726px;
+        width: 382px;
+        box-sizing: border-box;
+        }
+        
+        .client-profile .frame-6 {
+        align-items: flex-start;
+        align-self: stretch;
+        display: flex;
+        flex: 0 0 auto;
+        flex-wrap: wrap;
+        gap: 12px 16px;
+        position: relative;
+        width: 100%;
+        }
+        
+        .client-profile .button-instance {
+        flex: 0 0 auto !important;
+        }
+        
+        .client-profile .text-wrapper-5 {
+        color: var(--grey-4);
+        font-family: var(--header-3-font-family);
+        font-size: var(--header-3-font-size);
+        font-style: var(--header-3-font-style);
+        font-weight: var(--header-3-font-weight);
+        left: 34px;
+        letter-spacing: var(--header-3-letter-spacing);
+        line-height: var(--header-3-line-height);
+        position: absolute;
+        text-align: center;
+        top: 1105px;
+        white-space: nowrap;
+        }
+        
+        .client-profile .frame-7 {
+        align-items: flex-start;
+        background-color: var(--hover);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        overflow-y: scroll;
+        padding: 20px 0px;
+        position: absolute;
+        top: 1150px;
+        width: 382px;
+        }
+        
+        .client-profile .group-2 {
+        height: 203px;
+        position: relative;
+        width: 375px;
+        }
+        
+        .client-profile .group-3 {
+        height: 54px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 203px;
+        }
+        .mobile-header .frame-2{
+            display: flex;
+            width: 100%;
+        }
+        
+        .client-profile .text-wrapper-6 {
+        color: var(--grey-4);
+        font-family: var(--body-bold-font-family);
+        font-size: var(--body-bold-font-size);
+        font-style: var(--body-bold-font-style);
+        font-weight: var(--body-bold-font-weight);
+        left: 11px;
+        letter-spacing: var(--body-bold-letter-spacing);
+        line-height: var(--body-bold-line-height);
+        position: absolute;
+        text-align: center;
+        top: 0;
+        white-space: nowrap;
+        }
+        
+        .client-profile .frame-8 {
+        align-items: center;
+        display: inline-flex;
+        gap: 4px;
+        justify-content: center;
+        left: 0;
+        position: absolute;
+        top: 23px;
+        }
+        
+        .client-profile .frame-9 {
+        align-items: center;
+        display: inline-flex;
+        flex: 0 0 auto;
+        gap: 7.12px;
+        justify-content: center;
+        padding: 7.12px;
+        position: relative;
+        }
+        
+        .client-profile .frame-10 {
+        flex: 0 0 auto;
+        position: relative;
+        }
+        
+        .client-profile .text-wrapper-7 {
+        color: var(--grey-4);
+        font-family: var(--small-text-font-family);
+        font-size: var(--small-text-font-size);
+        font-style: var(--small-text-font-style);
+        font-weight: var(--small-text-font-weight);
+        letter-spacing: var(--small-text-letter-spacing);
+        line-height: var(--small-text-line-height);
+        margin-top: -0.71px;
+        position: relative;
+        text-align: center;
+        white-space: nowrap;
+        width: fit-content;
+        }
+        
+        .client-profile .line-2 {
+        height: 20px;
+        object-fit: cover;
+        position: relative;
+        width: 1px;
+        }
+        
+        .client-profile .text-wrapper-8 {
+        color: var(--grey-3);
+        font-family: var(--small-text-font-family);
+        font-size: var(--small-text-font-size);
+        font-style: var(--small-text-font-style);
+        font-weight: var(--small-text-font-weight);
+        letter-spacing: var(--small-text-letter-spacing);
+        line-height: var(--small-text-line-height);
+        position: relative;
+        text-align: center;
+        white-space: nowrap;
+        width: fit-content;
+        }
+        
+        .client-profile .text-wrapper-9 {
+        color: var(--grey-4);
+        font-family: var(--body-text-font-family);
+        font-size: var(--body-text-font-size);
+        font-style: var(--body-text-font-style);
+        font-weight: var(--body-text-font-weight);
+        left: 11px;
+        letter-spacing: var(--body-text-letter-spacing);
+        line-height: var(--body-text-line-height);
+        position: absolute;
+        top: 71px;
+        width: 362px;
+        }
+        
+        .client-profile .group-4 {
+        height: 137px;
+        position: relative;
+        width: 375px;
+        }
+    .div-2{
+        display: none;
+    }
+}
+    

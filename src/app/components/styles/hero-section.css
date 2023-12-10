@@ -1,0 +1,548 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap');
+
+:root {
+  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;700&display=swap');
+  --black: rgba(0, 0, 0, 1);
+  --body-bold-font-family: "Work Sans", sans-serif;
+  --body-bold-font-size: 1rem;
+  --body-bold-font-style: normal;
+  --body-bold-font-weight: 700;
+  --body-bold-letter-spacing: 0px;
+  --body-bold-line-height: normal;
+  --body-text-font-family: "Work Sans", sans-serif;
+  --body-text-font-size: 1rem;
+  --body-text-font-style: normal;
+  --body-text-font-weight: 500;
+  --body-text-letter-spacing: 0px;
+  --body-text-line-height: 140%;
+  --button-text-font-family: "Work Sans", sans-serif;
+  --button-text-font-size: 1rem;
+  --button-text-font-style: normal;
+  --button-text-font-weight: 700;
+  --button-text-letter-spacing: 0.64px;
+  --button-text-line-height: normal;
+  --grey-1: rgba(162, 166, 167, 1);
+  --grey-2: rgba(114, 114, 114, 1);
+  --grey-3: rgba(74, 74, 74, 1);
+  --grey-4: rgba(44, 45, 44, 1);
+  --header-1-font-family: "Work Sans", sans-serif;
+  --header-1-font-size: 4rem;
+  --header-1-font-style: normal;
+  --header-1-font-weight: 700;
+  --header-1-letter-spacing: -1.28px;
+  --header-1-line-height: normal;
+  --header-2-font-family: "Work Sans", sans-serif;
+  --header-2-font-size: 2.5rem;
+  --header-2-font-style: normal;
+  --header-2-font-weight: 700;
+  --header-2-letter-spacing: -0.8px;
+  --header-2-line-height: normal;
+  --header-3-font-family: "Work Sans", sans-serif;
+  --header-3-font-size: 2rem;
+  --header-3-font-style: normal;
+  --header-3-font-weight: 700;
+  --header-3-letter-spacing: -0.48px;
+  --header-3-line-height: normal;
+  --hover: rgba(241, 242, 242, 1);
+  --link-text-font-family: "Work Sans", sans-serif;
+  --link-text-font-size: 1rem;
+  --link-text-font-style: normal;
+  --link-text-font-weight: 700;
+  --link-text-letter-spacing: 0px;
+  --link-text-line-height: normal;
+  --pre-title-font-family: "Work Sans", sans-serif;
+  --pre-title-font-size: 0.75rem;
+  --pre-title-font-style: normal;
+  --pre-title-font-weight: 700;
+  --pre-title-letter-spacing: 0.36px;
+  --pre-title-line-height: normal;
+  --small-text-font-family: "Work Sans", sans-serif;
+  --small-text-font-size: 0.75rem;
+  --small-text-font-style: normal;
+  --small-text-font-weight: 500;
+  --small-text-letter-spacing: 0px;
+  --small-text-line-height: 140%;
+  --subtitle-font-family: "Work Sans", sans-serif;
+  --subtitle-font-size: 1.125rem;
+  --subtitle-font-style: normal;
+  --subtitle-font-weight: 500;
+  --subtitle-letter-spacing: 0px;
+  --subtitle-line-height: normal;
+  --white: rgba(255, 255, 255, 1);
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  html{
+    font-size: 12px;
+  }
+  .hero-section {
+    height: 470px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .frame-2-left{
+    width: 50%;
+    display: flex;
+  }
+  .frame-2-right{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10%;
+    align-items: center;
+  }
+  .hero-content {
+    height: 296px;
+  }
+  .hero-section .frame-2{
+    height: 80px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+  }
+  .pexels-photo-by{
+    display: none;
+  }
+  .hero-section .frame-3{
+    display: none;
+  }
+  .frame-4{
+    display: none;
+  }
+  .hero-section .green-card-made-easy {
+    color: var(--grey-4);
+    font-family: var(--header-1-font-family);
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.96px;
+    line-height: normal;
+    width: 275px;
+  }
+  .overlap-group{
+    display: flex;
+    flex-direction: column;
+  }
+  .rectangle-b {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+  }
+.rectangle-a{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--hover);
+}
+.hero-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hero-content p{
+  text-align: center;
+}
+.hero-btn{
+  display: flex;
+  flex-direction: row;
+
+}
+.button-2{
+  display: inline-flex;
+  height: 46px;
+  padding: 6.4px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  width: 174px;
+  font-size: 0.75rem;
+  margin-right: 10px;
+}
+.class {
+  display: inline-flex;
+  height: 46px;
+  padding: 6.4px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  width: 174px;
+  font-size: 0.75rem;
+  margin-left: 10px;
+}
+}
+
+@media only screen and (min-width: 780px) {
+  .hero-section {
+    height: 981px;
+    width: 100%;
+  }
+
+  .hero-section .overlap-group {
+    background-color: var(--hover);
+    height: 296px;
+    width: 100%;
+  }
+
+  .hero-section .frame-2 {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    left: 100px;
+    position: absolute;
+    top: 25px;
+    width: 1240px;
+  }
+  .frame-2-right{
+    display: none;
+  }
+  .menu{
+    display: none;
+  }
+  .frame-2-right{
+    display: none;
+  }
+
+  .hero-section .green-card-made-easy {
+    color: var(--grey-4);
+    font-family: var(--header-1-font-family);
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.96px;
+    line-height: normal;
+    width: 275px;
+  }
+
+  .hero-section .p {
+    color: var(--black);
+    font-family: var(--small-text-font-family);
+    font-size: var(--small-text-font-size);
+    font-style: var(--small-text-font-style);
+    font-weight: var(--small-text-font-weight);
+    letter-spacing: var(--small-text-letter-spacing);
+    line-height: var(--small-text-line-height);
+    text-align: center;
+    width: 326px;
+  }
+
+
+  .hero-section .design-component-instance-node {
+    font-family: var(--pre-title-font-family);
+
+    font-size: var(--pre-title-font-size);
+    font-style: var(--pre-title-font-style);
+
+    font-weight: var(--pre-title-font-weight);
+
+    letter-spacing: var(--pre-title-letter-spacing);
+
+    line-height: var(--pre-title-line-height);
+
+  }
+
+  .hero-section .rectangle-a {
+    height: 296px;
+    width: 100%;
+    background-image: url(../rectangle-1.png);
+  }
+
+
+
+  .hero-section .overlap-group {
+    height: 981px;
+    position: relative;
+  }
+
+  .hero-section .rectangle-a {
+    height: 100%;
+    width: 100%;
+    background-image: url(../rectangle-1.png);
+  }
+
+  .hero-section .rectangle-b {
+    height: 981px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-image: url(../pexels-photo-by-mikhail-nilov-2.png);
+    background-repeat: round;
+  }
+
+
+
+  .hero-section .pexels-photo-by {
+    object-fit: cover;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+  }
+
+
+
+  .hero-section .frame {
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 15px;
+    left: 697px;
+    position: absolute;
+    top: 949px;
+  }
+
+  .hero-section .ellipse,
+  .hero-section .div {
+    border-radius: 7.5px;
+    height: 15px;
+    position: relative;
+    width: 15px;
+  }
+
+  .hero-section .ellipse {
+    background-color: var(--grey-3);
+  }
+
+  .hero-section .div {
+    background-color: var(--grey-1);
+  }
+
+  .hero-section .frame-2 {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    left: 100px;
+    position: absolute;
+    top: 25px;
+    width: 1240px;
+  }
+
+
+  .hero-section .asset {
+    height: 17.46px;
+    position: relative;
+    width: 172px;
+  }
+
+  .hero-section .frame-3 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 auto;
+    gap: 64px;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+  }
+
+  .hero-section .text-wrapper {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    line-height: var(--body-text-line-height);
+    margin-top: 1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+  }
+
+
+  .hero-section .text-wrapper-2 {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    line-height: var(--body-text-line-height);
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+  }
+
+  .hero-section .text-wrapper-3 {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    line-height: var(--body-text-line-height);
+    margin-top: 1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+  }
+
+  .hero-section .frame-4 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 50px;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+  }
+
+  .hero-section .button-instance {
+    color: var(--white);
+  }
+
+  .hero-section .instance-node {
+    flex: 0 auto;
+  }
+
+  .hero-section .green-card-made-easy {
+    font-family: var(--header-1-font-family);
+    font-size: 100px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    width: 545px;
+  }
+
+  /* @media only screen and (max-width: 600px) {
+  .hero-section .green-card-made-easy {
+   position: relative;
+
+  } */
+
+
+  .hero-section .button-2 {
+    display: flex;
+    width: 250px;
+  }
+ 
+  .hero-section .class {
+    border-color: var(--hover);
+    display: flex;
+    width: 250px;
+  }
+
+  .hero-section .class-2 {
+    display: flex;
+    width: 250px;
+  }
+
+  .hero-btn {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+  }
+
+
+  .hero-section .your-ultimate-legal {
+    font-family: var(--body-text-font-family);
+    font-size: var(--body-text-font-size);
+    font-style: var(--body-text-font-style);
+    font-weight: var(--body-text-font-weight);
+    letter-spacing: var(--body-text-letter-spacing);
+    line-height: var(--body-text-line-height);
+
+  }
+
+  .hero-section .hero-section-attorney {
+    background-color: var(--black);
+    opacity: 0.2;
+    color: white;
+
+  }
+
+  .heo-section-attorney {
+    color: var(--hover);
+    background-color: var(--black);
+    opacity: 0.2;
+  }
+
+  .hero-content {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-section .hero-section-client {
+    background-color: var(--hover);
+    opacity: 0.75;
+    ;
+  }
+
+  .hero-section .property-1-hero-section-attorney {
+    height: 981px;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .hero-section .property-1-hero-section-client {
+    height: 899px;
+    width: 611px;
+  }
+
+  .hero-section .property-1-0-hero-section-attorney {
+    color: var(--white);
+  }
+
+  .hero-section .property-1-0-hero-section-client {
+    color: var(--black);
+  }
+
+  .hero-section .property-1-1-hero-section-attorney {
+    color: var(--white);
+  }
+
+  .hero-section .property-1-1-hero-section-client {
+    color: var(--black);
+  }
+
+  .hero-section .property-1-2-hero-section-attorney {
+    color: var(--white);
+  }
+
+  .hero-section .property-1-2-hero-section-client {
+    color: var(--black);
+  }
+
+  .hero-section .property-1-3-hero-section-attorney {
+    color: var(--hover);
+    line-height: 91.3px;
+    top: 314px;
+  }
+
+  .hero-section .property-1-3-hero-section-client {
+    color: var(--grey-4);
+    line-height: 80px;
+    top: 336px;
+  }
+
+  .hero-section .property-1-4-hero-section-attorney {
+    color: var(--white);
+    width: 535px;
+  }
+
+  .hero-section .property-1-4-hero-section-client {
+    color: var(--black);
+    width: 521px;
+  }
+
+  .hero-content-attorney {
+    color: white;
+  }
+}

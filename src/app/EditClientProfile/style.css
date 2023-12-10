@@ -1,0 +1,243 @@
+@media only screen and (min-width: 780px) {
+.edit-client-profile {
+    background-color: #f1f2f2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    }
+    
+    .edit-client-profile .div-2 {
+    background-color: var(--hover);
+    height: 1284px;
+    position: relative;
+    width: 1440px;
+    }
+    
+    .edit-client-profile .header-instance {
+    background-color: transparent !important;
+    left: 100px !important;
+    position: absolute !important;
+    top: 35px !important;
+    }
+    
+    .edit-client-profile .text-wrapper-2 {
+    color: #000000;
+    font-family: var(--header-2-font-family);
+    font-size: var(--header-2-font-size);
+    font-style: var(--header-2-font-style);
+    font-weight: var(--header-2-font-weight);
+    left: 613px;
+    letter-spacing: var(--header-2-letter-spacing);
+    line-height: var(--header-2-line-height);
+    position: absolute;
+    top: 181px;
+    white-space: nowrap;
+    }
+    
+    .edit-client-profile .overlap-group {
+    background-image: url(./pexels-photo-by-emmy-e.png);
+    background-size: 100% 100%;
+    height: 150px;
+    position: relative;
+    top: 250px;
+    left: 70px;
+    width: 150px;
+    border-radius: 100%;
+    }
+    
+    .edit-client-profile .fluent-camera-add {
+    height: 32px;
+    left: 102px;
+    position: absolute;
+    top: 118px;
+    width: 32px;
+    }
+    
+    .edit-client-profile .frame-3 {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: flex-end;
+    left: 426px;
+    position: absolute;
+    top: 329px;
+    }
+    
+    .edit-client-profile .button-instance {
+    border-radius: 10px !important;
+    width: 698px !important;
+    }
+    
+    .edit-client-profile .design-component-instance-node {
+    color: #2c2d2c !important;
+    font-family: "Work Sans-Medium", Helvetica !important;
+    
+    font-size: 14px !important;
+    font-style: unset !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+    line-height: 19.6px !important;
+    text-align: unset !important;
+    white-space: unset !important;
+    }
+    
+    .edit-client-profile .button-2 {
+    align-items: flex-start !important;
+    border-radius: 10px !important;
+    height: 125px !important;
+    padding: 15px !important;
+    width: 698px !important;
+    }
+    .prop-form{
+        border-radius: 10px;
+        border: 0.5px solid var(--Grey-4, #2C2D2C);
+        display: flex;
+        height: 46px;
+        padding: 6.4px 15px;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+        margin: auto;
+     }
+    .about{
+        height: 150px;
+        display: inline-block;
+     }
+     .prop-form input{
+        width: 100%;
+        border: none;
+        overflow-x: scroll;
+        z-index: 0;
+        outline: none;
+        background-color: inherit;
+        font-family: inherit;
+     }
+   }
+   @media only screen and (max-width: 600px) {
+      .edit-client-profile {
+         background-color: #ffffff;
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+       }
+       
+       .edit-client-profile .div-2 {
+         background-color: #ffffff;
+         height: 932px;
+         position: relative;
+         width: 430px;
+         display: flex;
+         flex-direction: column;
+        
+       }
+       
+       .edit-client-profile .group {
+         height: 32px;
+         
+         width: 382px;
+       }
+       
+       .edit-client-profile .mobile-header {
+         height: 16px;
+         width: 167px;
+       }
+       
+       .edit-client-profile .frame-435 {
+         
+       }
+       
+       .edit-client-profile .asset {
+         height: 13px;
+        
+         width: 123px;
+       }
+       
+       .edit-client-profile .material-symbols-2 {
+         height: 32px;
+         width: 31px;
+       }
+       
+       .edit-client-profile .overlap-group {
+         background-image: url(./pexels-photo-by-emmy-e.png);
+         background-size: 100% 100%;
+         display: flex;
+         flex-direction: row;
+         height: 122px;
+         width: 122px;
+         margin: auto;
+         border-radius: 100%;
+       }
+       
+       .edit-client-profile .fluent-camera-add {
+         height: 26px;
+         width: 26px;
+       }
+       
+       .edit-client-profile .button-instance {
+         border-radius: 10px !important;
+         width: 350px !important;
+       }
+       
+       .edit-client-profile .design-component-instance-node {
+         border-radius: 10px !important;
+         width: 350px !important;
+       }
+       
+       .edit-client-profile .button-instance {
+         border-radius: 10px !important;
+         width: 350px !important;
+       }
+       .edit-client-profile .frame-3{
+         align-items: center;
+         display: inline-flex;
+         flex-direction: column;
+         gap: 10px;
+         height: 640px;
+         justify-content: space-between;
+         width: 100%;
+         
+         
+
+       }
+      .text-wrapper-2{
+         display: none;
+      }
+      .button.primary{
+         height: 46px;
+      }
+       .prop-form {
+         border: 0.5px solid var(--Grey-4, #2C2D2C);
+         display: flex;
+         padding: 6.4px 15px;
+         align-items: center;
+         gap: 10px;
+         flex-shrink: 0;
+         box-sizing: border-box;
+
+         width: 290px;
+       }
+         .prop-form.mid {
+            height: 46px;
+         }
+         .prop-form.about{
+            height: 125px;
+            display: block;
+         }
+      
+         .prop-form input {
+            width: 100%;
+            border: none;
+            overflow-x: scroll;
+            z-index: 0;
+            outline: none;
+         }
+      }
+   
+       
+       
+   
