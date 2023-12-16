@@ -134,6 +134,7 @@
 
  .frame-2-right {
     display: flex;
+    height: 100%;
  }
 
  .layer {

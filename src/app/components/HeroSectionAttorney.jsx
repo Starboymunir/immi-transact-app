@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Button } from "./Button";
+import Button from "./Button";
 import "../globals.css";
 import "./styles/buttons.css";
 import "./styles/hero-section.css"

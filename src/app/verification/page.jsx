@@ -1,8 +1,8 @@
 "use client"
 import React, { useState } from "react";
-import { Button } from "../components/Button";
+import Button from "../components/Button";
 import Header from "../components/header";
-import { HomepageFooter } from "./HomepageFooter";
+import HomepageFooter from "./HomepageFooter.jsx";
 import  PropertyFormWrapper from "./PropertyFormWrapper";
 import "./style.css";
 import "../globals.css";

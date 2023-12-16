@@ -6,13 +6,7 @@ import "./components/styles/hero-section.css"
 import HomePage from './page';
 import Head from "next/head";
 import Heade from "./components/head";
-
-
-//import { NavBar } from "./components/NavBar";
-/* import { HeroSection } from "./components/HeroSection";
-import { IconWrapper } from "./components/Icon-Wrapper"; */
-//import HomePage from './page';
-//import { Reviews } from "./components/reviews";
+import { AuthContextProvider } from './context/AuthContext';
 
 //const inter = Inter({ subsets: ['latin'] })
 
@@ -29,13 +23,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+       
     <Heade/>
         {/* <HeroSection className="" />
         <IconWrapper /> */}
         {/* <Reviews property1="" className="" /> */}
 
 
-        {children}</body>
+        {children}
+        </body>
     </html>
   )
 }

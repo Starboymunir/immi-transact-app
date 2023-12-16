@@ -605,7 +605,11 @@ html {
   position: relative;
   max-width: 48px;
 }
-
+.homepage .frame-21 p {
+  display: inline-block;
+  width: 1076px;
+  margin: auto;
+}
 @media only screen and (max-width: 600px) {
   html {
     font-size: 12px;
@@ -735,9 +739,17 @@ html {
     margin-top: -1px;
     position: relative;
     text-align: center;
-    max-width: 1076px;
+    width: 100%;
     margin-top: 5%;
     margin-bottom: 5%;
+
+    
+  }
+  .homepage .life-saver-immi {
+    display: inline-block;
+  }
+  .homepage .life-saver-immi p {
+    margin: auto;
   }
 
   .homepage .frame-21 {
@@ -747,6 +759,7 @@ html {
     flex-direction: column;
     margin-top: 5%;
     margin-bottom: 5%;
+    
   }
   
   .homepage .homepage-footer .div {
@@ -786,6 +799,7 @@ html {
   .homepage .frame-21 .div
   .text-wrapper {
     height: 55%;
+    display: inline-block;
   }
 
   .homepage .frame-21 {
@@ -987,6 +1001,9 @@ html {
 .homepage .button-5 {
   text-align: unset ;
 }
+.homepage .instance-node {
+  box-shadow: none;
+}
 
 .homepage .text-wrapper-14 {
   color: var(--black);
@@ -1073,6 +1090,7 @@ html {
   font-family: "Work Sans-Italic", Helvetica;
   font-style: italic;
   font-weight: 700;
+  margin-top: 50px;
 }
 
 .homepage .frame-instance {}
@@ -1189,7 +1207,16 @@ body {
   width: 100%;
   font-family: var(--header-3-font-family);
 }
-
+.frame-21{
+  height: 284px;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.frame-21 .div{
+  width: 90%;
+}
 .join-page .div-2 {
   background-color: #ffffff;
   height: 900px;
@@ -1396,7 +1423,7 @@ body {
     margin-top: -1px;
     position: relative;
     text-align: center;
-    max-width: 1076px;
+    width: 100%;
   }
 
   .stepps {
@@ -1412,7 +1439,8 @@ body {
     align-items: flex-start;
     display: flex;
     gap: 230px;
-    max-width: 100%;
+    max-width: 80%;
+    margin: auto;
     box-sizing: border-box;
     margin-top: 5%;
     margin-bottom: 5%;
@@ -1429,7 +1457,7 @@ body {
     display: inline-flex;
     flex: 0 0 auto;
     flex-direction: column;
-    gap: 137px;
+    gap: 80px;
     position: relative;
     margin: auto;
   }
@@ -1476,8 +1504,8 @@ body {
   .homepage .homepage-footer .frame {
     align-items: flex-start;
     display: flex;
-    justify-content: space-between;
     max-width: 61rem;
+
   }
 
   .homepage .homepage-footer .div {
@@ -1490,11 +1518,11 @@ body {
     box-sizing: border-box;
     display: flex;
     gap: 10px;
-    max-height: 46px;
+    height: 46px;
     overflow: hidden;
     padding: 6.4px 15px;
     position: relative;
-    max-width: 365px;
+    width: 365px;
   }
 
   .homepage .homepage-footer .text-wrapper {

@@ -1,15 +1,103 @@
 "use client"
 import React from "react";
-import { Button } from "../components/Button";
+import Button  from "../components/Button";
 import Header from "../components/header";
 import { HomepageFooter } from "./HomepageFooter";
-import { ProfileCardFrame } from "./ProfileCardFrame";
+import ProfileCardFrame  from "./ProfileCardFrame";
 import "./style.css";
 import "../globals.css";
 import Link from "next/link";
 export default function HomepageSignIn() {
     return (
         <div className="homepage-sign-in">
+
+            <div className="div-1">
+            <Header
+                    className="header-instance"
+                    img="material-symbols-notifications-outline-2.svg"
+                    layer="layer-1-2.png"
+                    maskGroup="mask-group-7.png"
+                    materialSymbols="material-symbols-search-3.svg"
+                    memoryMessage="memory-message-8.svg"
+                    tablerSettings="tabler-settings-2.svg"
+                />
+            
+                <div className="text-wrapper-4">Getting Started</div> 
+                <p className="for-people-seeking">
+
+                    For people seeking legal services of&nbsp;&nbsp;Attorneys for US permanent residency and citizenship applications.
+                </p>
+                <Button className="button-4" property1="primary" text="SELECT PRACTICE AREAS" textClassName="button-5" /> <div className="frame-7">
+                    <ProfileCardFrame
+                        buttonTextClassName="profile-card-frame-instance"
+                        maskGroup="image.png"
+                        memoryMessage="memory-message-2.svg"
+                        text="Agbaje Ade"
+                        text1="4.8"
+                        uisFavorite="uis-favorite-2.svg"
+                    />
+                    <ProfileCardFrame
+                        buttonTextClassName="profile-card-frame-instance"
+                        maskGroup="mask-group-2.png"
+                        memoryMessage="memory-message-3.svg"
+                        text="Agbaje Ade"
+                        text1="4.8"
+                        uisFavorite="uis-favorite-3.svg"
+                    />
+                    <ProfileCardFrame
+                        buttonTextClassName="profile-card-frame-instance"
+                        maskGroup="mask-group-3.png"
+                        memoryMessage="memory-message-4.svg"
+                        text="Agbaje Ade"
+                        text1="4.8"
+                        uisFavorite="uis-favorite-4.svg"
+                    />
+                </div>
+                <div className="frame-8">
+                    <ProfileCardFrame
+                        buttonTextClassName="profile-card-frame-instance"
+                        maskGroup="mask-group-4.png"
+                        memoryMessage="memory-message-5.svg"
+                        text="Agbaje Ade"
+                        text1="4.8"
+                        uisFavorite="uis-favorite-5.svg"
+                    />
+                    <ProfileCardFrame
+                        buttonTextClassName="profile-card-frame-instance"
+                        maskGroup="mask-group-5.png"
+                        memoryMessage="memory-message-6.svg"
+                        text="Agbaje Ade"
+                        text1="4.8"
+                        uisFavorite="uis-favorite-6.svg"
+                    />
+                    <ProfileCardFrame
+                        buttonTextClassName="profile-card-frame-instance"
+                        maskGroup="mask-group-6.png"
+                        memoryMessage="memory-message-7.svg"
+                        text="Agbaje Ade"
+                        text1="4.8"
+                        uisFavorite="uis-favorite-7.svg"
+                    />
+                </div>
+                <div className="text-wrapper-5">Top rated clients</div>
+                <div className="text-wrapper-6">Clients near you</div>
+                <div className="frame-9">
+                    <div className="frame-10">
+                        <img className="img-2" alt="Material symbols" src="image.svg" />
+                        <div className="text-3">Search</div>
+                    </div>
+                    <img className="img-2" alt="Mi filter" src="mi-filter.svg" />
+                </div>
+                <div className="text-wrapper-7">View all</div>
+                <HomepageFooter
+                    asset="asset-9ldpi-1-2.svg"
+                    className="homepage-footer-instance"
+                    phCopyright="ph-copyright-2.svg"
+                />
+                 </div>
+
+
+
             <div className="div-2">
                 <div className="getting-started">
                     <div className="overlap-group">
@@ -17,8 +105,8 @@ export default function HomepageSignIn() {
                         <p className="for-people-seeking">
                             For people seeking legal services of&nbsp;&nbsp;Attorneys for US permanent residency and citizenship applications.
                         </p>
-                        <img className="lawyers-debate-in" alt="Lawyers debate in" src="lawyers-debate-in-front-of-a-judge.png" /> 
-                        <Link href = "../clientApplication"><Button className="button-4" property1="primary" text="APPLY FOR GREEN CARD" /></Link>
+                        <img className="lawyers-debate-in" alt="Lawyers debate in" src="lawyers-debate-in-front-of-a-judge.png" />
+                        <Link href="../clientApplication"><Button className="button-4" property1="primary" text="APPLY FOR GREEN CARD" /></Link>
                     </div>
                 </div>
                 <div className="text-wrapper-9">Top rated attorneys</div>
@@ -119,7 +207,7 @@ export default function HomepageSignIn() {
                     memoryMessage="memory-message-8.svg"
                     tablerSettings="tabler-settings-2.svg"
                 />
-                  <HomepageFooter
+                <HomepageFooter
                     asset="asset-9ldpi-1-2.svg"
                     className="homepage-footer-instance"
                     phCopyright="ph-copyright-2.svg"

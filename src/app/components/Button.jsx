@@ -2,13 +2,12 @@ import PropTypes from "prop-types";
 import React from "react";
 import "../globals.css";
 import "./styles/buttons.css";
-import "./styles/hero-section.css"
+import "./styles/hero-section.css";
 
-
-export const Button = ({ property1, className, text, imgSrc, imgAlt, imgClassName }) => {
+const Button = ({ property1, className, text, imgSrc, imgAlt, imgClassName, type }) => {
   return (
-    <button className={`button ${property1} ${className}`}>
-       {imgSrc && imgAlt && <img className={`button-icon ${imgClassName}`} src={imgSrc} alt={imgAlt} />}
+    <button className={`button ${property1 || ""} ${className || ""}`} type={type}>
+      {imgSrc && imgAlt && <img className={`button-icon ${imgClassName || ""}`} src={imgSrc} alt={imgAlt} />}
       <div className="text">{text}</div>
     </button>
   );
@@ -26,7 +25,7 @@ Button.propTypes = {
   imgSrc: PropTypes.string,
   imgAlt: PropTypes.string,
   imgClassName: PropTypes.string,
+  type: PropTypes.oneOf(["button", "submit", "reset"]),
 };
 
 export default Button;
-

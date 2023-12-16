@@ -37,7 +37,7 @@ const SecurityAndPrivacy = () => {
       <div className="this-policy-does">
         This policy does not apply to the practices of third party agents, or
         people of which we do not exercise direct control, employment or
-        management.
+        managements and.
       </div>
       <div className="consent-by-using-this-site-y-parent">
         <div className="consent-by-using-container">

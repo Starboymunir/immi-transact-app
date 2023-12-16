@@ -1,12 +1,15 @@
 "use client"
 import React from "react";
-import { Button } from "../components/Button";
+import Button from "../components/Button";
 import "./style.css";
 import "../globals.css";
 
 export const ProfileCardFrame = () => {
     return (
+
         <div className="profile-card-frame">
+
+
             <div className="mask-div"><img className="mask-group" alt="Mask group" src="mask-group.png" /> </div>
             <div className="frame">
                 <div className="div">

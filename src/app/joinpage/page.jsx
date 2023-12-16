@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from "react";
-import { Button } from "../components/Button";
+import Button from "../components/Button";
 import { Group } from "../components/Group";
 import { PropertyDefaultWrapper } from "../components/PropertyDefaultWrapper";
 import "../globals.css";

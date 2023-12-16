@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./components/Button";
+import Button from "./components/Button";
 //import img from 'next/img'
 // { Reviews } from "./components/reviews";
 import { HeroSectionWrapper } from "./components/HeroSectionWrapper";
@@ -147,11 +147,9 @@ export default function HomePage() {
         </div>
         <Reviews
           className="frame-21"
-          group="group-2.png"
-          img="right.svg"
+          
           property1="review-1"
-          vector="left.svg"
-          vectorClassName="frame-instance"
+         
         />
 
         <div className="download-app">
@@ -164,10 +162,7 @@ export default function HomePage() {
           </div>
         </div>
         <HomepageFooter
-          asset="asset-9ldpi-1-2.svg"
-          className="homepage-footer-instance"
-          phCopyright="ph-copyright-2.svg"
-          to="/faq"
+         
         />
       </div>
 

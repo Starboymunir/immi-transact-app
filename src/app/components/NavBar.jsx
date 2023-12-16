@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./Button";
+import Button from "./Button";
 import "../globals.css";
 import Image from 'next/image'
 import "./styles/buttons.css";

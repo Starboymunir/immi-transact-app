@@ -406,6 +406,7 @@
 
   .hero-section .instance-node {
     flex: 0 auto;
+    box-shadow: none;
   }
 
   .hero-section .green-card-made-easy {
@@ -476,6 +477,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+padding: 9%;
+    box-sizing: border-box;
   }
 
   .hero-section .hero-section-client {

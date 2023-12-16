@@ -10,7 +10,7 @@ export const Header = () => {
             <div className="header-mobile">
             <div className="frame-2">
           <div className="frame-2-left">
-            <Menu menuType="openOtherPages" img="line-2.svg" line="line-2.svg" line1="line-2.svg" property1="default" />
+            <Menu menuType="default" img="line-2.svg" line="line-2.svg" line1="line-2.svg" property1="default" />
             <img className="layer" alt="Layer" src="layer-1.png" />
           </div>
           <div className="frame-2-right">

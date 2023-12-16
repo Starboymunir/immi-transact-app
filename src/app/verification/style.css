@@ -1,3 +1,6 @@
+.sign-up-page-client a {
+   width: 100%;
+}
 @media only screen and (min-width: 780px) {
 .sign-up-page-client {
     background-color: #ffffff;

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from "react";
-import { Button } from "../components/Button";
+import Button from "../components/Button";
 import Header from "../components/header";
 import { HomepageFooter } from "./HomepageFooter";
 import "./style.css";

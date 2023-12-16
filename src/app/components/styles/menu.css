@@ -4,7 +4,7 @@
     flex-direction: column;
     position: relative;
     display: flex;
-    width: 45px;
+    width: 100%;
     padding:10px;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -24,12 +24,21 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 30vw;
+        width: 100%;
         opacity: 1;
-        height: 200px;
+        height: 50%;
+        font-size: 20px;
+        font-weight: 700;
         box-sizing: border-box;
         justify-content: space-evenly;
         z-index: 10;
+
+    }
+    a{
+      align-items: center;
+      text-align: center;
+      display: flex;
+      justify-content: center;
 
     }
     .asset{

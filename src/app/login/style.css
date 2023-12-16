@@ -97,6 +97,9 @@
       position: relative;
       width: 40px;
    } 
+   .sign-up-page-client a{
+      width: 100%;
+   }
    .first{
       width: 290px;
       box-sizing: border-box;
@@ -190,6 +193,10 @@
          background-color: var(--grey-1) !important;
       } 
 
+}
+
+.sign-up-page-client a{
+   width: 100%;
 }
 @media only screen and (min-width: 780px) {
 .sign-up-page-client {

@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { Button } from "../components/Button";
+import Button from "../components/Button";
 import Header from "../components/header";
 import PropertyFormWrapper from "./PropertyFormWrapper";
 import "./style.css";
