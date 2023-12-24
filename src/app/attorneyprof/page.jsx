@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
-export default function HomepageSignIn() {
+function HomepageSignIn() {
 
     const [users, setUsers] = useState([]);
 
