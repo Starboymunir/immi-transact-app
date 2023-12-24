@@ -149,8 +149,7 @@ export default function HomePage() {
           className="frame-21"
           
           property1="review-1"
-          vector="left.svg"
-          vectorClassName="frame-instance"
+        
         />
 
         <div className="download-app">
