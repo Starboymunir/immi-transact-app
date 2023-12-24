@@ -1,18 +1,37 @@
 "use client"
 import React from "react";
-import Button  from "../components/Button";
+import Button from "../components/Button";
 import Header from "../components/header";
 import { HomepageFooter } from "./HomepageFooter";
-import ProfileCardFrame  from "./ProfileCardFrame";
+import ProfileCardFrame from "./ProfileCardFrame";
 import "./style.css";
 import "../globals.css";
 import Link from "next/link";
+
+import { useEffect, useState } from "react";
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+
 export default function HomepageSignIn() {
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            const db = getFirestore();
+            const usersCollection = collection(db, 'User');
+            const usersSnapshot = await getDocs(usersCollection);
+            const usersData = usersSnapshot.docs.map(doc => doc.data());
+            setUsers(usersData);
+        };
+
+        fetchUsers();
+    }, []);
+
     return (
         <div className="homepage-sign-in">
 
             <div className="div-1">
-            <Header
+                <Header
                     className="header-instance"
                     img="material-symbols-notifications-outline-2.svg"
                     layer="layer-1-2.png"
@@ -21,63 +40,41 @@ export default function HomepageSignIn() {
                     memoryMessage="memory-message-8.svg"
                     tablerSettings="tabler-settings-2.svg"
                 />
-            
-                <div className="text-wrapper-4">Getting Started</div> 
+
+                <div className="text-wrapper-4">Getting Started</div>
                 <p className="for-people-seeking">
 
                     For people seeking legal services of&nbsp;&nbsp;Attorneys for US permanent residency and citizenship applications.
                 </p>
-                <Button className="button-4" property1="primary" text="SELECT PRACTICE AREAS" textClassName="button-5" /> <div className="frame-7">
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-instance"
-                        maskGroup="image.png"
-                        memoryMessage="memory-message-2.svg"
-                        text="Agbaje Ade"
-                        text1="4.8"
-                        uisFavorite="uis-favorite-2.svg"
-                    />
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-instance"
-                        maskGroup="mask-group-2.png"
-                        memoryMessage="memory-message-3.svg"
-                        text="Agbaje Ade"
-                        text1="4.8"
-                        uisFavorite="uis-favorite-3.svg"
-                    />
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-instance"
-                        maskGroup="mask-group-3.png"
-                        memoryMessage="memory-message-4.svg"
-                        text="Agbaje Ade"
-                        text1="4.8"
-                        uisFavorite="uis-favorite-4.svg"
-                    />
+                <Button className="button-4" property1="primary" text="APPLY FOR GREEN CARD" textClassName="button-5" /> <div className="frame-7">
+                {users.slice(0, 3).map((user, index) => (
+                        <ProfileCardFrame
+                            key={index}
+                            username={user.username}
+                            maskGroup={user.imageUrl}
+                            rating={user.rating}
+                            shortProfile={user.shortProfile}
+                            buttonTextClassName="profile-card-frame-instance"
+
+                            memoryMessage={`memory-message-${index + 3}.svg`}
+                            uisFavorite={`uis-favorite-${index + 2}.svg`}
+                        />
+                    ))}
                 </div>
                 <div className="frame-8">
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-instance"
-                        maskGroup="mask-group-4.png"
-                        memoryMessage="memory-message-5.svg"
-                        text="Agbaje Ade"
-                        text1="4.8"
-                        uisFavorite="uis-favorite-5.svg"
-                    />
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-instance"
-                        maskGroup="mask-group-5.png"
-                        memoryMessage="memory-message-6.svg"
-                        text="Agbaje Ade"
-                        text1="4.8"
-                        uisFavorite="uis-favorite-6.svg"
-                    />
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-instance"
-                        maskGroup="mask-group-6.png"
-                        memoryMessage="memory-message-7.svg"
-                        text="Agbaje Ade"
-                        text1="4.8"
-                        uisFavorite="uis-favorite-7.svg"
-                    />
+                {users.slice(0, 3).map((user, index) => (
+                        <ProfileCardFrame
+                            key={index}
+                            username={user.username}
+                            maskGroup={user.imageUrl}
+                            rating={user.rating}
+                            shortProfile={user.shortProfile}
+                            buttonTextClassName="profile-card-frame-instance"
+
+                            memoryMessage={`memory-message-${index + 3}.svg`}
+                            uisFavorite={`uis-favorite-${index + 2}.svg`}
+                        />
+                    ))}
                 </div>
                 <div className="text-wrapper-5">Top rated clients</div>
                 <div className="text-wrapper-6">Clients near you</div>
@@ -94,7 +91,7 @@ export default function HomepageSignIn() {
                     className="homepage-footer-instance"
                     phCopyright="ph-copyright-2.svg"
                 />
-                 </div>
+            </div>
 
 
 
@@ -112,68 +109,34 @@ export default function HomepageSignIn() {
                 <div className="text-wrapper-9">Top rated attorneys</div>
                 <div className="text-wrapper-10">Attorneys near you</div>
                 <div className="frame-10">
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-instance"
-                        maskGroup="mask-group-2.png"
-                        memoryMessage="memory-message-3.svg"
-                        uisFavorite="uis-favorite-2.svg"
-                    />
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-instance"
-                        maskGroup="mask-group-3.png"
-                        memoryMessage="memory-message-4.svg"
-                        uisFavorite="uis-favorite-3.svg"
-                    />
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-instance"
-                        maskGroup="mask-group-4.png"
-                        memoryMessage="memory-message-5.svg"
-                        uisFavorite="uis-favorite-4.svg"
-                    />
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-instance"
-                        maskGroup="mask-group-5.png"
-                        memoryMessage="memory-message-6.svg"
-                        uisFavorite="uis-favorite-5.svg"
-                    />
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-instance"
-                        maskGroup="mask-group-6.png"
-                        memoryMessage="memory-message-7.svg"
-                        uisFavorite="uis-favorite-6.svg"
-                    />
+                    {users.slice(0, 5).map((user, index) => (
+                        <ProfileCardFrame
+                            key={index}
+                            username={user.username}
+                            maskGroup={user.imageUrl}
+                            rating={user.rating}
+                            shortProfile={user.shortProfile}
+                            buttonTextClassName="profile-card-frame-instance"
+
+                            memoryMessage={`memory-message-${index + 3}.svg`}
+                            uisFavorite={`uis-favorite-${index + 2}.svg`}
+                        />
+                    ))}
                 </div>
                 <div className="frame-11">
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-2"
-                        maskGroup="mask-group-8.png"
-                        memoryMessage="memory-message-9.svg"
-                        uisFavorite="uis-favorite-7.svg"
-                    />
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-2"
-                        maskGroup="mask-group-9.png"
-                        memoryMessage="memory-message-10.svg"
-                        uisFavorite="uis-favorite-8.svg"
-                    />
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-2"
-                        maskGroup="mask-group-10.png"
-                        memoryMessage="memory-message-11.svg"
-                        uisFavorite="uis-favorite-9.svg"
-                    />
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-2"
-                        maskGroup="mask-group-11.png"
-                        memoryMessage="memory-message-12.svg"
-                        uisFavorite="uis-favorite-10.svg"
-                    />
-                    <ProfileCardFrame
-                        buttonTextClassName="profile-card-frame-2"
-                        maskGroup="mask-group-12.png"
-                        memoryMessage="memory-message-13.svg"
-                        uisFavorite="uis-favorite-11.svg"
-                    />
+                {users.slice(0, 5).map((user, index) => (
+                        <ProfileCardFrame
+                            key={index}
+                            username={user.username}
+                            maskGroup={user.imageUrl}
+                            rating={user.rating}
+                            shortProfile={user.shortProfile}
+                            buttonTextClassName="profile-card-frame-instance"
+
+                            memoryMessage={`memory-message-${index + 3}.svg`}
+                            uisFavorite={`uis-favorite-${index + 2}.svg`}
+                        />
+                    ))}
                 </div>
                 <div className="frame-12">
                     <button className="button-5">

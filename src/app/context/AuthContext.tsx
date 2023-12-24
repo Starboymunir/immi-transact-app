@@ -1,61 +1,114 @@
 "use client"
-// Import necessary libraries
-import { createContext, useContext, useState, useEffect } from "react";
-import { onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendEmailVerification } from "firebase/auth";
-import { auth } from "../firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  sendPasswordResetEmail,
+  GoogleAuthProvider,
+  signInWithPopup,
+  UserCredential,
+  sendEmailVerification,
+  onAuthStateChanged as firebaseOnAuthStateChanged, // alias to avoid naming conflict
+  User,
+} from 'firebase/auth';
 
-// Create AuthContext
-const AuthContext = createContext<any>({});
+import { auth as firebaseAuth } from '../firebaseConfig';
 
-// Create and export useAuth hook
-export const useAuth = () => useContext(AuthContext);
+interface ErrorResponse {
+  code: string;
+  message: string;
+}
 
-// Create and export AuthContextProvider
-export default function AuthContextProvider  ({
-  children,
-}: {
-  children: React.ReactNode;
-}){
-  const [user, setUser] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+const authService = {
+  user: null as User | null, // initial user state
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser({
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-        });
+  createUser: async (email: string, password: string): Promise<UserCredential | null> => {
+    try {
+      const userCredential: UserCredential = await createUserWithEmailAndPassword(firebaseAuth, email, password);
+
+      // Send email verification
+      await sendEmailVerification(userCredential.user);
+
+      console.log('User created successfully. Verification email sent to:', userCredential.user?.email);
+
+      // Update user state
+      authService.user = userCredential.user;
+
+      return userCredential;
+    } catch (error: ErrorResponse | any) {
+      if (error.code === 'auth/weak-password') {
+        console.error('Weak password');
+      } else if (error.code === 'auth/email-already-in-use') {
+        console.error('User already exists');
       } else {
-        setUser(null);
+        console.error('Error creating user:', error.message);
       }
-      setLoading(false);
+      return null;
+    }
+  },
+
+  loginUser: async (email: string, password: string): Promise<UserCredential | null> => {
+    try {
+      const userCredential: UserCredential = await signInWithEmailAndPassword(firebaseAuth, email, password);
+
+      console.log('User logged in successfully:', userCredential.user?.email);
+
+      // Update user state
+      authService.user = userCredential.user;
+
+      return userCredential;
+    } catch (error: ErrorResponse | any) {
+      if (error.code === 'auth/user-not-found') {
+        console.error('User not found');
+      } else if (error.code === 'auth/wrong-password') {
+        console.error('Wrong password');
+      } else {
+        console.error('Error logging in:', error.message);
+      }
+      return null;
+    }
+  },
+
+  signInWithGoogle: async (): Promise<UserCredential | null> => {
+    try {
+      const provider = new GoogleAuthProvider();
+      const userCredential: UserCredential = await signInWithPopup(firebaseAuth, provider);
+
+      console.log('User logged in with Google:', userCredential.user?.displayName);
+
+      // Update user state
+      authService.user = userCredential.user;
+
+      return userCredential;
+    } catch (error: ErrorResponse | any) {
+      console.error('Error logging in with Google:', error.message);
+      return null;
+    }
+  },
+
+  resetPassword: async (email: string): Promise<void> => {
+    try {
+      await sendPasswordResetEmail(firebaseAuth, email);
+      console.log(`Password reset email sent to ${email}`);
+    } catch (error: ErrorResponse | any) {
+      console.error('Error sending password reset email:', error.message);
+    }
+  },
+
+  signOut: (): void => {
+    signOut(firebaseAuth);
+    console.log('User signed out');
+
+    // Update user state
+    authService.user = null;
+  },
+
+  onAuthStateChanged: (callback: (user: User | null) => void): () => void => {
+    return firebaseOnAuthStateChanged(firebaseAuth, (user) => {
+      authService.user = user;
+      callback(user);
     });
-    return () => unsubscribe();
-  }, []);
-
-
-  
-
-  // Define signup, login, and logout functions
-  const signup = (email: string, password: string) => {
-    return createUserWithEmailAndPassword(auth, email, password);
-  };
-
-  const login = (email: string, password: string) => {
-    return signInWithEmailAndPassword(auth, email, password);
-  };
-
-  const logout = async () => {
-    setUser(null);
-    await signOut(auth);
-  };
-
-  // Return AuthContextProvider with value and loading state check
-  return (
-    <AuthContext.Provider value={{ user, login, signup, logout, sendEmailVerification }}>
-      {loading ? null : children}
-    </AuthContext.Provider>
-  );
+  },
 };
+
+export default authService;

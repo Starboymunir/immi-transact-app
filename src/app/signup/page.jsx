@@ -1,16 +1,29 @@
-"use client"
+
+"use client";
 import React, { useState } from "react";
 import Button from "../components/Button";
 import PropertyFormWrapper from "./PropertyFormWrapper";
 import "./style.css";
 import "../globals.css";
+import Popup from './Popup';
 import Menu from "../components/menu";
 import Link from "next/link";
-import { useAuth } from "../context/AuthContext";
+import authService from "../context/AuthContext";
+import { useRouter } from "next/navigation";
+import { useParams } from 'next/navigation';
+import { getFirestore, collection,  doc, setDoc  } from 'firebase/firestore'; // Adjust imports
+import {firebaseConfig} from '../firebaseConfig';
+import { initializeApp } from "firebase/app";
+
+
+
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore(firebaseApp);
 
 export default function SignUpPageClient() {
-  const { user, signup } = useAuth();
-  //console.log(user);
+  const { user } = authService;
+  const { createUser, signInWithGoogle } = authService;
+  const { role } = useParams();
 
   const [formValues, setFormValues] = useState({
     email: "",
@@ -19,6 +32,17 @@ export default function SignUpPageClient() {
     firstName: "",
     lastName: "",
   });
+
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+ 
+  // State for the popup
+  const [showPopup, setShowPopup] = useState(false);
+
 
   // Function to handle form input changes
   const handleInputChange = (field, value) => {
@@ -31,36 +55,85 @@ export default function SignUpPageClient() {
   // Function to handle form submission
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Validation checks
+    const validationErrors = {};
+
     if (!formValues.email || !/^\S+@\S+\.\S+$/.test(formValues.email)) {
-      console.error("Invalid email address");
-      // TODO: Set an error state or display an error message for invalid email
-      return;
+      validationErrors.email = "Invalid email address";
     }
-  
+
     if (!formValues.password || formValues.password !== formValues.confirmPassword) {
-      console.error("Passwords do not match");
-      // TODO: Set an error state or display an error message for password mismatch
+      validationErrors.password = "Passwords do not match";
+      validationErrors.confirmPassword = "Passwords do not match";
+    }
+
+    // Update the errors state with validation errors
+    setErrors(validationErrors);
+
+    // If there are validation errors, stop the submission
+    if (Object.keys(validationErrors).length > 0) {
       return;
     }
-  
+
     try {
       // Call the signup function from your context
-      await signup(formValues.email, formValues.password);
-      console.log("Signup successful!");
-      // Add any redirection logic or further actions after successful signup
+      await createUser(formValues.email, formValues.password);
+      const sanitizedEmail = formValues.email.replace(/[.#$/[\]]/g, "_");
+
+
+      const userDocRef = doc(collection(db, 'User'), formValues.email);
+      await setDoc(userDocRef, {
+        acceptedJob: [],
+        address: "", // Add the current country of the user
+        email: formValues.email,
+        fullProfile: "",
+        id: "",
+        imageUrl: "", // Add the profile picture URL if available
+        isVerificationSubmitted: false,
+        isVerified: false,
+        latitude: 0,
+        lawfirmName: "",
+        licenseId: "",
+        linkdln: "",
+        loginType:"Client",
+        longitude: 0,
+        notification: [],
+        postalCode: "",
+        practiceAreas: [],
+        practiseState: "",
+        rating: 1,
+        shortProfile: "I need a green card",
+        username: `${formValues.firstName} ${formValues.lastName}`,
+      });
+
+    
+
+      // Show the success popup
+      setShowPopup(true);
     } catch (error) {
       console.error('Error during signup:', error.message);
       // Handle error, e.g., show error message to the user
       // TODO: Set an error state or display an error message for signup failure
-      return;
     }
   };
-  
 
   // Check if all form fields are filled
   const isFormFilled = Object.values(formValues).every((value) => value.trim() !== "");
+
+  // Function to handle Google signup
+  const handleGoogleSignUp = async () => {
+    try {
+      await signInWithGoogle();
+      console.log("Google signup successful!");
+      // Add any redirection logic or further actions after successful Google signup
+    } catch (error) {
+      console.error('Error during Google signup:', error.message);
+      // Handle error, e.g., show error message to the user
+      // TODO: Set an error state or display an error message for Google signup failure
+      return;
+    }
+  };
 
   return (
     <div className="sign-up-page-client">
@@ -78,7 +151,7 @@ export default function SignUpPageClient() {
           </div>
           <div className="frame-2-right">Sign up</div>
         </div>
-        <div className="rectangle-2">
+        <div className="rectangle-7">
           <div className="group">
             <form onSubmit={handleFormSubmit}>
               <div className="overlap">
@@ -86,16 +159,15 @@ export default function SignUpPageClient() {
 
                 <div className="overlap-group-wrapper">
                   <div className="overlap-group">
-                    <a href="google.com">
-                      <Button
-                        className="button-instance"
-                        property1="primary"
-                        text="CONTINUE WITH GOOGLE"
-                        imgSrc="ri-google-fill.svg"
-                        imgAlt="Ri google fill"
-                        imgClassName="ri-google-fill"
-                      />
-                    </a>
+                    <Button
+                      className="button-instance"
+                      property1="primary"
+                      text="CONTINUE WITH GOOGLE"
+                      imgSrc="ri-google-fill.svg"
+                      imgAlt="Ri google fill"
+                      imgClassName="ri-google-fill"
+                      onClick={handleGoogleSignUp} // Handle Google signup on button click
+                    />
                   </div>
                 </div>
                 <div className="frame">
@@ -118,23 +190,27 @@ export default function SignUpPageClient() {
                   />
                 </div>
                 <PropertyFormWrapper
-                  className="prop-form first button-5"
+                  className={`prop-form first button-5 ${errors.email ? "error" : ""}`}
                   property1="form-field-default"
                   text="Email address"
                   onChange={(value) => handleInputChange("email", value)}
                 />
+                {errors.email && <span className="error-message">{errors.email}</span>}
                 <PropertyFormWrapper
-                  className="prop-form first button-3"
+                  className={`prop-form first button-3 ${errors.password ? "error" : ""}`}
                   property1="form-field-default"
                   text="Password"
                   onChange={(value) => handleInputChange("password", value)}
                 />
+                {errors.password && <span className="error-message">{errors.password}</span>}
+
                 <PropertyFormWrapper
-                  className="prop-form first button-4"
+                  className={`prop-form first button-4 ${errors.confirmPassword ? "error" : ""}`}
                   property1="form-field-default"
                   text="Confirm password"
                   onChange={(value) => handleInputChange("confirmPassword", value)}
                 />
+
 
                 <div className="frame-2">
                   <div className="rectangle" />
@@ -152,17 +228,49 @@ export default function SignUpPageClient() {
               </div>
             </form>
             <div className="frame-3">
-              <a href="google.com">
-                {" "}
+
                 <div className="text-wrapper-3">Already have an account?</div>
-              </a>
               <Link href="../login">
-                <div className="text-wrapper-4">Log In</div>
+                <div className="text-wrapper-z">Log In</div>
               </Link>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Conditionally render the popup */}
+      {showPopup && (
+        <Popup>
+          <div className="email-verification">
+            <div className="frame">
+              <div className="frame-wrapper">
+                <div className="frame">
+                  <img className="asset" alt="Asset" src="asset-9ldpi-1.svg" />
+                  <div className="text-wrapper">Verify Email</div>
+                </div>
+              </div>
+              <div className="div">
+                <p className="par">
+                  A mail has been sent to the administrative email address you submitted. Check your email inbox and click the
+                  reset link provided.
+                </p>
+                <div className="text-wrapper-2">Didnt receive an email?</div>
+                <div className="div-wrapper">
+                  <p className="text-wrapper-3">Check email for verification link</p>
+                </div>
+                <Link href="dashboard">
+                <Button
+                  className="button-instance-2"
+                  property1="primary"
+                  text="DONE"
+                  textClassName="design-component-instance-node"
+                />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Popup>
+      )}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+
 @media only screen and (max-width: 600px) {
 
    .sign-up-page-client {
@@ -196,8 +197,273 @@
 }
 
 .sign-up-page-client a{
-   width: 100%;
-}
+   width: 100%;}
+  
+
+.forget-password {
+   align-items: center;
+   background-color: var(--hover);
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   justify-content: center;
+   padding: 70px 50px;
+   position: relative;
+   border-radius: 25px;
+   }
+   .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for the backdrop effect */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000; /* Ensure the popup is on top of other elements */
+    }
+    
+    .popup-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for the popup */
+    }
+   .forget-password .frame-222 {
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   height: 345px;
+   position: relative;
+   }
+   
+   .forget-password .frame-wrapper-22{
+   align-items: center;
+   display: inline-flex;
+   flex: 0 0 auto;
+   flex-direction: column;
+   gap: 2px;
+   position: relative;
+   }
+   
+   .forget-password .div-22 {
+   align-items: center;
+   display: inline-flex;
+   flex: 0 0 auto;
+   flex-direction: column;
+   gap: 20px;
+   position: relative;
+   }
+   
+   .forget-password .asset {
+   height: 24px;
+   position: relative;
+   width: 241.5px;
+   }
+   
+   .forget-password .text-wrapper {
+   color: var(--grey-3);
+   font-family: var(--small-text-font-family);
+   font-size: var(--small-text-font-size);
+   font-style: var(--small-text-font-style);
+   font-weight: var(--small-text-font-weight);
+   letter-spacing: var(--small-text-letter-spacing);
+   line-height: var(--small-text-line-height);
+   position: relative;
+   white-space: nowrap;
+   width: fit-content;
+   }
+   
+   .forget-password .frame-22 {
+   background-color: var(--white);
+   border-radius: 10px;
+   height: 264px;
+   overflow: hidden;
+   position: relative;
+   width: 400px;
+   }
+   
+   .forget-password .button-22 {
+   align-items: center;
+   background-color: var(--white);
+   border: 1px solid;
+   border-color: var(--grey-1);
+   border-radius: 5px;
+   box-shadow: var(--drop-shadow-button-secondary);
+   display: flex;
+   gap: 10px;
+   left: 28px;
+   padding: 4px 15px;
+   position: absolute;
+   top: 118px;
+   width: 313px;
+   }
+   
+   .forget-password .text-wrapper-33 {
+   color: var(--grey-1);
+   font-family: var(--small-text-font-family);
+   font-size: var(--small-text-font-size);
+   font-style: var(--small-text-font-style);
+   font-weight: var(--small-text-font-weight);
+   letter-spacing: var(--small-text-letter-spacing);
+   line-height: var(--small-text-line-height);
+   position: relative;
+   text-align: center;
+   white-space: nowrap;
+   width: fit-content;
+   }
+   
+   .forget-password .text{
+   color: var(--grey-1);
+   font-family: "Lato-Regular", Helvetica;
+   font-size: 14px;
+   font-weight: 400;
+   letter-spacing: 0;
+   line-height: 22px;
+   position: relative;
+   text-align: center;
+   white-space: nowrap;
+   width: fit-content;
+   }
+   
+   .forget-password .button-instance-2 {
+   left: 124px !important;
+   position: absolute !important;
+   top: 182px !important;
+   }
+   
+   .forget-password .frame-33 {
+   align-items: center;
+   display: inline-flex;
+   gap: 26px;
+   left: 41px;
+   position: absolute;
+   top: 32px;
+   }
+   
+   .forget-password .basil-unlock-outline {
+   height: 24px;
+   position: relative;
+   width: 24px;
+   }
+   
+   .forget-password .parag {
+   
+   color: var(--medical-design-colour-stylesblackblack-7);
+   
+   font-family: var(--small-text-font-family);
+   font-size: var(--small-text-font-size);
+   font-style: var(--small-text-font-style);
+   font-weight: var(--small-text-font-weight);
+   letter-spacing: var(--small-text-letter-spacing);
+   line-height: var(--small-text-line-height);
+   margin-top: -1px;
+   position: relative;
+   width: 268px;
+   }
+   
+   .forget-password .text-wrapper-33 {
+   color: #000000;
+   font-family: var(--small-text-font-family);
+   font-size: var(--small-text-font-size);
+   font-style: var(--small-text-font-style);
+   font-weight: var(--small-text-font-weight);
+   left: 44px;
+   letter-spacing: var(--small-text-letter-spacing);
+   line-height: var(--small-text-line-height);
+   position: absolute;
+   text-align: center;
+   top: 97px;
+   white-space: nowrap;
+   }
+
+   .div-bb {
+      justify-content: center;
+      border-radius: 25px;
+      background-color: var(--Hover, #f1f2f2);
+      display: flex;
+      max-width: 500px;
+      flex-direction: column;
+      padding: 50px 76px;
+    }
+    @media (max-width: 991px) {
+      .div-bb {
+        padding: 0 20px;
+      }
+    }
+    .img {
+      aspect-ratio: 10.08;
+      object-fit: contain;
+      object-position: center;
+      width: 242px;
+      overflow: hidden;
+      align-self: center;
+      margin-top: 20px;
+      max-width: 100%;
+    }
+    .div-2 {
+      color: var(--Grey-3, #4a4a4a);
+      align-self: center;
+      margin-top: 20px;
+      white-space: nowrap;
+      font: 500 12px/140% Work Sans, -apple-system, Roboto, Helvetica,
+        sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-2 {
+        white-space: initial;
+      }
+    }
+    .div-3 {
+      border-radius: 10px;
+      background-color: var(--White, #fff);
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0;
+      padding: 36px 35px;
+    }
+    @media (max-width: 991px) {
+      .div-3 {
+        padding: 0 20px;
+      }
+    }
+    .div-4 {
+      color: var(--Grey-3, #4a4a4a);
+      align-self: center;
+      white-space: nowrap;
+      font: 500 12px/140% Work Sans, -apple-system, Roboto, Helvetica,
+        sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-4 {
+        white-space: initial;
+      }
+    }
+    .div-5 {
+      color: var(--Grey-1, #a2a6a7);
+      text-align: center;
+      margin-top: 14px;
+      font: 500 12px/17px Work Sans, -apple-system, Roboto, Helvetica,
+        sans-serif;
+    }
+    .div-6 {
+      color: var(--Black, #000);
+      text-align: center;
+      text-decoration-line: underline;
+      align-self: center;
+      margin-top: 73px;
+      width: 300px;
+      font: 700 16px Work Sans, sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-6 {
+        margin-top: 40px;
+      }
+    }
+  
+   
 @media only screen and (min-width: 780px) {
 .sign-up-page-client {
     background-color: #ffffff;
@@ -206,7 +472,15 @@
     justify-content: center;
     width: 100%;
     }
-    
+    form{
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    form a {
+      margin: auto;
+    }
     .sign-up-page-client .div {
     background-color: var(--white);
     height: 1300px;
@@ -388,7 +662,6 @@
     gap: 1.67vh;
     display: flex;
     flex-direction: row;
-    margin: auto;
     width: 100%;
     }
     

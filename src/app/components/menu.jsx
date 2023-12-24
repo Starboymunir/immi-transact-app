@@ -8,41 +8,66 @@ export default function Menu({ menuType, line = "line-2.svg", img = "line-2.svg"
     isOpen: false,
   });
 
+  const handleClick = (event) => {
+    const isCloseIcon = event.target.classList.contains('material-symbols-light-close');
+
+    if (isCloseIcon) {
+      dispatch({ type: 'click' });
+    } else {
+      // Handle other click actions or prevent the menu from closing
+      // For example, you might want to navigate to a different page or perform other actions
+    }
+  };
+
+    const handleToggleMenu = () => {
+      dispatch({ type: 'click' });
+    };
+
   return (
-    <div
-    className={`menu ${state.isOpen ? (menuType === "openOtherPages" ? "open-other-pages" : "") : ""}`}
-    onClick={() => {
-      dispatch({ type: "click" });
-    }}
-  >
-      {state.isOpen && menuType === "openOtherPages" ? (
-        <>
-          {/* Render the new menu content */}
-          <div className="open-other-pages">
-            <div className="menu-frame">
-              <div className="menu-div">
-                <img className="material-symbols" alt="Material symbols" src="material-symbols-search.svg" />
-                <img className="material-symbols" alt="Material symbols" src="material-symbols-light-close.svg" />
-              </div>
-              <div className="menu-frame-2">
+    <>
+      {state.isOpen && (
+        <div className="overlay" onClick={() => dispatch({ type: 'click' })}></div>
+      )}
+
+      <div
+        className={`menu ${state.isOpen ? (menuType === "openOtherPages" ? "open-other-pages" : "") : ""}`}
+        onClick={handleClick}
+      >
+        {state.isOpen && menuType === "openOtherPages" ? (
+          <>
+            {/* Render the new menu content */}
+            <div className="overlay">
+            <div className="open-other-pages">
+              <div className="menu-frame">
+                <div className="menu-div">
+                  <img className="material-symbols material-symbols-light-close" alt="Material symbols" src="material-symbols-search.svg" />
+                  <img className="material-symbols material-symbols-light-close" alt="Material symbols" src="material-symbols-light-close.svg" />
+                </div>
+                <div className="menu-frame-2">
+                <Link href="../../src">
                 <div className="div-wrapper">
 
                   <div className="text-wrapper">Home</div>
                 </div>
+                </Link>
+                <Link href="../notifs">
                 <div className="div-wrapper">
-              
+
                   <div className="text-wrapper">My Applications</div>
-               
-                  
                 </div>
+                </Link>
+                <Link href="../notifs">
                 <div className="div-wrapper">
-               <div className="text-wrapper">Notifications</div>
-                 
+
+                  <div className="text-wrapper">Notifications</div>
                 </div>
+                </Link>
+                <Link href="../chat">
                 <div className="div-wrapper">
-                <div className="text-wrapper">Messages</div>
-                  
+
+                  <div className="text-wrapper">Messages</div>
                 </div>
+                </Link>
                 <div className="div-wrapper">
                 <div className="text-wrapper">Settings</div>
                   
@@ -51,34 +76,35 @@ export default function Menu({ menuType, line = "line-2.svg", img = "line-2.svg"
             </div>
             <div className=" menu-frame-3">
               <div className="text-wrapper-2">Logout</div>
+              </div>
             </div>
-          </div>
-        </>
-      ) : (
-        <>
-          {/* Render the default menu content */}
+            </div>
+          </>
+        ) : (
+          <div className="default-menu" onClick={handleToggleMenu}>
           <img className="line" alt="Line" src={line} />
           <img className="line" alt="Line" src={img} />
           <img className="line" alt="Line" src={line1} />
-        </>
-      )}
+        </div>
 
-      {/* Common content */}
-      {state.isOpen && menuType === "default" && (
-        <>
-        <div className="menu-default">          <img
+        )}
+
+        {/* Common content */}
+        {state.isOpen && menuType === "default" && (
+          <>
+            <div className="menu-default">
+              <img
             src={state.isOpen ? "material-symbols-light-close.svg" : "material-symbols-light-close.svg"}
             alt="Material symbols"
           />
-<div>Home</div>
-          <Link href="../faq"><div>About Us</div></Link>
-          <Link href="../contact"><div>Contact Us</div></Link>
-          
-          </div>
-
-        </>
-      )}
-    </div>
+            <div>Home</div>
+            <Link href="../faq"><div>About Us</div></Link>
+            <Link href="../contact"><div>Contact Us</div></Link>
+            </div>
+          </>
+        )}
+      </div>
+    </>
   );
 }
 

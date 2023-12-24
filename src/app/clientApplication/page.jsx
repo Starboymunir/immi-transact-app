@@ -1,24 +1,60 @@
 "use client"
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../components/Button";
 import Header from "../components/header";
 import { HomepageFooter } from "./HomepageFooter";
 import "./style.css";
 import "../globals.css";
 import Link from "next/link";
+import authService from "../context/AuthContext";
+import { getFirestore, doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { useRouter } from "next/navigation";
 
 export default function ClientApplication() {
-    const [selectedOptions, setSelectedOptions] = useState("");
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [user, setUser] = useState(null);
+  const router = useRouter();
 
-    const handleOptionClick = (option) => {
-        if (selectedOptions === option) {
-            // If the clicked option is already selected, unselect it
-            setSelectedOptions("");
-        } else {
-            // Otherwise, select the clicked option
-            setSelectedOptions(option);
-        }
-    };
+  useEffect(() => {
+    const unsubscribe = authService.onAuthStateChanged((authUser) => {
+      setUser(authUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const handleOptionClick = (option) => {
+    if (selectedOptions.includes(option)) {
+      // If the clicked option is already selected, unselect it
+      setSelectedOptions((prevOptions) =>
+        prevOptions.filter((selectedOption) => selectedOption !== option)
+      );
+    } else {
+      // Otherwise, select the clicked option
+      setSelectedOptions((prevOptions) => [...prevOptions, option]);
+    }
+  };
+
+  const handleNextClick = async () => {
+    if (user) {
+      const db = getFirestore();
+      const userDocRef = doc(db, "jobs_created", user.email);
+
+      // Set the document data in the jobs_created collection
+      await setDoc(userDocRef, {
+        created_at: serverTimestamp(),
+        green_cards: selectedOptions,
+        id: user.email,
+        username: user.displayName,
+      });
+
+      // Redirect to the dashboard or another page
+      // You can customize the route based on your application flow
+      // For now, redirecting to the dashboard
+      router.push("/dashboard");
+    }
+  };
+
     return (
         <div className="client-application">
             <div className="div-2">
@@ -173,6 +209,7 @@ export default function ClientApplication() {
                     className={`button-3 ${selectedOptions ? "button-3-active" : ""}`}
                     property1="primary"
                     text="NEXT"
+                    onClick={handleNextClick}
                 /> </Link>
                 </div>
                

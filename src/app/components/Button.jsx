@@ -4,9 +4,9 @@ import "../globals.css";
 import "./styles/buttons.css";
 import "./styles/hero-section.css";
 
-const Button = ({ property1, className, text, imgSrc, imgAlt, imgClassName, type }) => {
+const Button = ({ property1, className, text, imgSrc, imgAlt, imgClassName, type, onClick }) => {
   return (
-    <button className={`button ${property1 || ""} ${className || ""}`} type={type}>
+    <button className={`button ${property1 || ""} ${className || ""}`} type={type} onClick={onClick}>
       {imgSrc && imgAlt && <img className={`button-icon ${imgClassName || ""}`} src={imgSrc} alt={imgAlt} />}
       <div className="text">{text}</div>
     </button>
@@ -26,6 +26,7 @@ Button.propTypes = {
   imgAlt: PropTypes.string,
   imgClassName: PropTypes.string,
   type: PropTypes.oneOf(["button", "submit", "reset"]),
+  onClick: PropTypes.func, // Add onClick prop
 };
 
 export default Button;

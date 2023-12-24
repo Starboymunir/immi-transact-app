@@ -3,7 +3,30 @@ import React from "react";
 import Button from "../components/Button";
 import Header from "../components/header";
 import { HomepageFooter } from "./HomepageFooter";
-import { ProfileCardFrame } from "./ProfileCardFrame";
+import ProfileCardFrame from "./ProfileCardFrame";
+import "./style.css";
+import "../globals.css";
+import Link from "next/link";
+
+import { useEffect, useState } from "react";
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+
+export default function HomepageSignIn() {
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            const db = getFirestore();
+            const usersCollection = collection(db, 'User');
+            const usersSnapshot = await getDocs(usersCollection);
+            const usersData = usersSnapshot.docs.map(doc => doc.data());
+            setUsers(usersData);
+        };
+
+        fetchUsers();
+    }, []);
+om "./ProfileCardFrame";
 import "./style.css";
 
 export default function AttorneyProfile() {

@@ -7,15 +7,26 @@ import "../globals.css";
 import "../components/styles/joinpage.css";
 import Menu from "../components/menu";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const JoinPage = () => {
+  const router = useRouter();
   const [selectedOption, setSelectedOption] = useState(null);
-  const [prevSelectedOption, setPrevSelectedOption] = useState(null);
 
+  // Function to handle the selection of client or attorney
   const handleOptionSelect = (option) => {
-    setPrevSelectedOption(selectedOption);
+    setSelectedOption(option);
+  };
 
-    setSelectedOption((prevSelected) => (prevSelected === option ? null : option));
+  // Function to handle the creation of an account
+  const handleCreateAccount = () => {
+    if (selectedOption) {
+      // Determine the signup page based on the selected option
+      const signupPage = selectedOption === "default-cli-card" ? "/signup" : "/signup_attorney";
+      
+      // Navigate to the appropriate signup page
+      router.push(signupPage);
+    }
   };
 
   return (
@@ -26,9 +37,7 @@ const JoinPage = () => {
             <Menu menuType="default" img="line-2.svg" line="line-2.svg" line1="line-2.svg" property1="default" />
             <img className="layer" alt="Layer" src="layer-1.png" />
           </div>
-          <div className="frame-2-right">
-            Sign up
-          </div>
+          <div className="frame-2-right">Sign up</div>
         </div>
 
         <div className="rectangle-3">
@@ -57,19 +66,18 @@ const JoinPage = () => {
                 text="CREATE ACCOUNT"
                 textClassName="design-component-instance-node"
                 disabled={!selectedOption}
+                onClick={handleCreateAccount}
               />
               <div className="frame">
-
-
                 <div className="text-wrapper-3">Already have an account?</div>
-
-                <Link href= "../login"><div className="text-wrapper-4">Log In</div></Link>
+                <Link href="../login">
+                  <div className="text-wrapper-4">Log In</div>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   );
 };

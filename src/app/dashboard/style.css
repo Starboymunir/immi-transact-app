@@ -532,12 +532,14 @@
         position: relative;
         width: 208px;
         height: 313px;
+        justify-content: space-between;
         }
         
         .profile-card-frame .mask-group {
         height: 144px;
         position: relative;
         width: 208px;
+        object-fit: cover;
         }
         
         .profile-card-frame .frame {
