@@ -24,23 +24,6 @@ const decodeEmail = (encodedEmail) => {
 };
 
 
-
-export default function HomepageSignIn() {
-
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-        const fetchUsers = async () => {
-            const db = getFirestore();
-            const usersCollection = collection(db, 'User');
-            const usersSnapshot = await getDocs(usersCollection);
-            const usersData = usersSnapshot.docs.map(doc => doc.data());
-            setUsers(usersData);
-        };
-
-        fetchUsers();
-    }, []);
-
 export default function AttorneyProfile() {
     return (
         <div className="attorney-profile">
