@@ -25,19 +25,7 @@ const decodeEmail = (encodedEmail) => {
 
 
 
-export default function AttorneyProfile() {
-    const router = useRouter();
-    const { userEmail } = useParams()
-    const decodedEmail = decodeEmail(userEmail);
-    console.log(decodedEmail)
-
-    const [userData, setUserData] = useState({
-        username: "",
-        about: "",
-        imageUrl: "",
-    });
-
-    const [greenCards, setGreenCards] = useState([]);
+export default function HomepageSignIn() {
 
     const [users, setUsers] = useState([]);
 
@@ -52,55 +40,10 @@ export default function AttorneyProfile() {
 
         fetchUsers();
     }, []);
+om "./ProfileCardFrame";
+import "./style.css";
 
-    useEffect(() => {
-        console.log('Inside useEffect');
-        // Fetch user data from Firestore
-        const fetchUserData = async () => {
-            try {
-                const user = authService.user;
-                const userCollectionRef = collection(getFirestore(), 'User');
-                const q = query(userCollectionRef, where('email', '==', decodedEmail));
-                const querySnapshot = await getDocs(q);
-
-                if (!querySnapshot.empty) {
-                    // Since there should be only one document with the specified email, use the first one
-                    const userDataFromFirestore = querySnapshot.docs[0].data();
-                    setUserData(userDataFromFirestore);
-                    console.log('Fetched user data:', userDataFromFirestore);
-                } else {
-                    console.log('User document does not exist');
-                }
-            } catch (error) {
-                console.error('Error fetching user data:', error.message);
-            }
-        };
-
-
-        // Fetch green cards from Firestore
-        const fetchGreenCards = async () => {
-            try {
-                const user = authService.user;
-                const greenCardsDocRef = doc(collection(getFirestore(), 'jobs_created'), decodedEmail);
-                const greenCardsDoc = await getDoc(greenCardsDocRef);
-
-                if (greenCardsDoc.exists()) {
-                    const greenCardsFromFirestore = greenCardsDoc.data().green_cards || [];
-                    setGreenCards(greenCardsFromFirestore);
-                    console.log(greenCardsFromFirestore)
-                }
-            } catch (error) {
-                console.error('Error fetching green cards:', error.message);
-            }
-        };
-
-        fetchUserData();
-        fetchGreenCards();
-    }, []);
-    const profilePic = {
-        backgroundImage: `url(${userData.imageUrl})`
-    };
-
+export default function AttorneyProfile() {
     return (
         <div className="attorney-profile">
 
