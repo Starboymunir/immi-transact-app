@@ -58,6 +58,7 @@ export default function HomepageSignIn() {
 
                             memoryMessage={`memory-message-${index + 3}.svg`}
                             uisFavorite={`uis-favorite-${index + 2}.svg`}
+                            userEmail={user.email}
                         />
                     ))}
                 </div>

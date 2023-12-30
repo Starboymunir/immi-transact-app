@@ -1,3 +1,18 @@
+.search-container{
+   background-color: white;
+   z-index: 100000000;
+   position: fixed;
+   width: 100%;
+ 
+}
+.profeel{
+   display: flex;
+   overflow-x: scroll;
+
+}
+.profeel .profile-card-frame{
+   margin: 20px;
+}
 @media only screen and (min-width: 780px) {
 .header {
     height: 47px;

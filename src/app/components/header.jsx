@@ -4,10 +4,13 @@ import { useRouter } from "next/navigation";
 import "./header.css";
 import Menu from "./menu";
 import Link from "next/link";
+import Searchbar from './Searchbar'; 
 import authService from "../context/AuthContext";
+import { searchUsers } from "./utils/Search"
 
 export const Header = () => {
   const [user, setUser] = useState(null);
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -31,24 +34,25 @@ export const Header = () => {
           <div className="frame-2-left">
             <Menu
               menuType={menuType}
-              img="line-2.svg"
-              line="line-2.svg"
-              line1="line-2.svg"
+              img="/line-2.svg"
+              line="/line-2.svg"
+              line1="/line-2.svg"
               property1="default"
             />
-            <img className="layer" alt="Layer" src="layer-1.png" />
+            <img className="layer" alt="Layer" src="/layer-1.png" />
           </div>
           <div className="frame-2-right">
             <img
-              className="material-symbols"
+              className="material-symbols search-btn "
               alt="Material symbols"
-              src="material-symbols-search.svg"
+              src="/material-symbols-search.svg"
+              onClick={() => setIsSearchVisible(!isSearchVisible)}
             />
           </div>
         </div>
       </div>
       <div className="header">
-        <img className="layer" alt="Layer" src="layer-1.png" />
+        <img className="layer" alt="Layer" src="/layer-1.png" />
         <div className="frame">
           <Link href="/dashboard">
             <div className="text-wrapper">Dashboard</div>
@@ -59,25 +63,32 @@ export const Header = () => {
           <img
             className="material-symbols"
             alt="Material symbols"
-            src="material-symbols-search.svg"
+            src="/material-symbols-search.svg"
           />
-          <div className="text">Search for Attorneys</div>
+          <input
+          type="text"
+          placeholder="Search for Attorneys"
+          className="search-input"
+          onFocus={() => setIsSearchVisible(true)}
+        />
+
         </button>
+        
         <div className="div">
           <img
             className="memory-message"
             alt="Memory message"
-            src="memory-message.svg"
+            src="/memory-message.svg"
           />
           <img
             className="img"
             alt="Tabler settings"
-            src="tabler-settings.svg"
+            src="/tabler-settings.svg"
           />
           <img
             className="img"
             alt="Material symbols"
-            src="material-symbols-notifications-outline.svg"
+            src="/material-symbols-notifications-outline.svg"
           />
 
           {user && (
@@ -91,6 +102,7 @@ export const Header = () => {
           )}
         </div>
       </div>
+      {isSearchVisible && <Searchbar onClose={() => setIsSearchVisible(false)} />}
     </div>
   );
 };

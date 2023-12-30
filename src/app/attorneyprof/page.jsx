@@ -3,15 +3,41 @@ import React from "react";
 import Button from "../components/Button";
 import Header from "../components/header";
 import { HomepageFooter } from "./HomepageFooter";
-import ProfileCardFrame from "./ProfileCardFrame";
+import ProfileCardFrame from "../dashboard/ProfileCardFrame";
+import { useRouter } from "next/navigation";
+import { useParams } from 'next/navigation';
 import "./style.css";
 import "../globals.css";
 import Link from "next/link";
+import authService from "../context/AuthContext";
+import { query, where, getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firestore';
 
 import { useEffect, useState } from "react";
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+const decodeEmail = (encodedEmail) => {
+    try {
+        const decodedEmail = decodeURIComponent(encodedEmail);
+        return decodedEmail;
+    } catch (error) {
+        console.error('Error decoding email:', error);
+        return encodedEmail;
+    }
+};
 
-export default function HomepageSignIn() {
+
+
+export default function AttorneyProfile() {
+    const router = useRouter();
+    const { userEmail } = useParams()
+    const decodedEmail = decodeEmail(userEmail);
+    console.log(decodedEmail)
+
+    const [userData, setUserData] = useState({
+        username: "",
+        about: "",
+        imageUrl: "",
+    });
+
+    const [greenCards, setGreenCards] = useState([]);
 
     const [users, setUsers] = useState([]);
 
@@ -26,16 +52,61 @@ export default function HomepageSignIn() {
 
         fetchUsers();
     }, []);
-om "./ProfileCardFrame";
-import "./style.css";
 
-export default function AttorneyProfile() {
+    useEffect(() => {
+        console.log('Inside useEffect');
+        // Fetch user data from Firestore
+        const fetchUserData = async () => {
+            try {
+                const user = authService.user;
+                const userCollectionRef = collection(getFirestore(), 'User');
+                const q = query(userCollectionRef, where('email', '==', decodedEmail));
+                const querySnapshot = await getDocs(q);
+
+                if (!querySnapshot.empty) {
+                    // Since there should be only one document with the specified email, use the first one
+                    const userDataFromFirestore = querySnapshot.docs[0].data();
+                    setUserData(userDataFromFirestore);
+                    console.log('Fetched user data:', userDataFromFirestore);
+                } else {
+                    console.log('User document does not exist');
+                }
+            } catch (error) {
+                console.error('Error fetching user data:', error.message);
+            }
+        };
+
+
+        // Fetch green cards from Firestore
+        const fetchGreenCards = async () => {
+            try {
+                const user = authService.user;
+                const greenCardsDocRef = doc(collection(getFirestore(), 'jobs_created'), decodedEmail);
+                const greenCardsDoc = await getDoc(greenCardsDocRef);
+
+                if (greenCardsDoc.exists()) {
+                    const greenCardsFromFirestore = greenCardsDoc.data().green_cards || [];
+                    setGreenCards(greenCardsFromFirestore);
+                    console.log(greenCardsFromFirestore)
+                }
+            } catch (error) {
+                console.error('Error fetching green cards:', error.message);
+            }
+        };
+
+        fetchUserData();
+        fetchGreenCards();
+    }, []);
+    const profilePic = {
+        backgroundImage: `url(${userData.imageUrl})`
+    };
+
     return (
         <div className="attorney-profile">
 
 
             <div className="div">
-            <Header
+                <Header
                     className="header-instance"
                     img="material-symbols-notifications-outline-2.svg"
                     layer="layer-1-2.png"
@@ -46,13 +117,14 @@ export default function AttorneyProfile() {
                 />
                 <img
                     loading="lazy"
-                    srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/7a0f4778bc2ea921ff37a51c93566e35f261f4c48bb16731c40739552fa70a71?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/7a0f4778bc2ea921ff37a51c93566e35f261f4c48bb16731c40739552fa70a71?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/7a0f4778bc2ea921ff37a51c93566e35f261f4c48bb16731c40739552fa70a71?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/7a0f4778bc2ea921ff37a51c93566e35f261f4c48bb16731c40739552fa70a71?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/7a0f4778bc2ea921ff37a51c93566e35f261f4c48bb16731c40739552fa70a71?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/7a0f4778bc2ea921ff37a51c93566e35f261f4c48bb16731c40739552fa70a71?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/7a0f4778bc2ea921ff37a51c93566e35f261f4c48bb16731c40739552fa70a71?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/7a0f4778bc2ea921ff37a51c93566e35f261f4c48bb16731c40739552fa70a71?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                    className="img-3"
+                    srcSet= {userData.imageUrl}
+                 className="img-3"
+                 alt="imageprof"
                 />
                 <div className="div-7">
                     <div className="div-8">
                         <div className="div-9">
-                            <div className="div-10">Ade Isa</div>
+                            <div className="div-10">{userData.username}</div>
                             <div className="div-11">
                                 <img
                                     loading="lazy"
@@ -74,17 +146,16 @@ export default function AttorneyProfile() {
                         />
                     </div>
                     <div className="div-17">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. At eget
-                        iaculis eget eget neque, posuere quis placerat arcu. Lorem ipsum
-                        dolor sit amet, consectetur adipiscing elit. At eget iaculis eget
-                        eget neque, posuere quis placerat arcu. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit. At eget iaculis eget eget neque,
-                        posuere quis placerat arcu. Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. At eget iaculis eget eget neque, posuere quis
-                        placerat arcu.
+                        {userData.about}
                     </div>
-                    <div className="div-18">Green card through employment</div>
-                    <div className="div-19">Green card through family</div>
+                    {greenCards.map((greenCard, index) => (
+                        <Button
+                            key={index}
+                            className="button-instance"
+                            property1="secondary-hover"
+                            text={greenCard}
+                        />
+                    ))}
                     <div className="div-20">Reviews</div>
                     <div className="div-21">Habeeb Munir</div>
                     <div className="div-22">
@@ -131,166 +202,20 @@ export default function AttorneyProfile() {
                 </div>
                 <div className="div-30">You may also be interested in</div>
                 <div className="div-31">
-                    <div className="div-32">
-                        <img
-                            loading="lazy"
-                            srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                            className="img-11"
+                    {users.slice(0, 5).map((user, index) => (
+                        <ProfileCardFrame
+                            key={index}
+                            username={user.username}
+                            maskGroup={user.imageUrl}
+                            rating={user.rating}
+                            shortProfile={user.shortProfile}
+                            buttonTextClassName="profile-card-frame-instance"
+
+                            memoryMessage={`memory-message-${index + 3}.svg`}
+                            uisFavorite={`uis-favorite-${index + 2}.svg`}
+                            userEmail={user.email}
                         />
-                        <div className="div-33">
-                            <div className="div-34">
-                                <div className="div-35">Agbaje Ade</div>
-                                <div className="div-36">
-                                    <img
-                                        loading="lazy"
-                                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/6d767aaf1cd0e7cb9fd9689664072413c377db1bcfad041f8d37034c968d3989?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                                        className="img-12"
-                                    />
-                                    <div className="div-37">4.8</div>
-                                </div>
-                            </div>
-                            <div className="div-38">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. At eget
-                                iaculis eget eget neque, posuere quis placerat arcu.
-                            </div>
-                            <div className="div-39">
-                                <div className="div-40">view info</div>
-                                <img
-                                    loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/ec69ddd20b265f7dde8b311080115e4401fec0ef3327b8ebcdd61d188bca0c51?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                                    className="img-13"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="div-41">
-                        <img
-                            loading="lazy"
-                            srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                            className="img-14"
-                        />
-                        <div className="div-42">
-                            <div className="div-43">
-                                <div className="div-44">Agbaje Ade</div>
-                                <div className="div-45">
-                                    <img
-                                        loading="lazy"
-                                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/9d7c2da79810e2081a3798a581f78e8db857bf24598adb0122fa7755ec1f482d?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                                        className="img-15"
-                                    />
-                                    <div className="div-46">4.8</div>
-                                </div>
-                            </div>
-                            <div className="div-47">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. At eget
-                                iaculis eget eget neque, posuere quis placerat arcu.
-                            </div>
-                            <div className="div-48">
-                                <div className="div-49">view info</div>
-                                <img
-                                    loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/726b654c7d06ac6a442f8f23e9703ffd848a8bca0f5185c254642ecf45f42bf7?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                                    className="img-16"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="div-50">
-                        <img
-                            loading="lazy"
-                            srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                            className="img-17"
-                        />
-                        <div className="div-51">
-                            <div className="div-52">
-                                <div className="div-53">Agbaje Ade</div>
-                                <div className="div-54">
-                                    <img
-                                        loading="lazy"
-                                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/9d7c2da79810e2081a3798a581f78e8db857bf24598adb0122fa7755ec1f482d?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                                        className="img-18"
-                                    />
-                                    <div className="div-55">4.8</div>
-                                </div>
-                            </div>
-                            <div className="div-56">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. At eget
-                                iaculis eget eget neque, posuere quis placerat arcu.
-                            </div>
-                            <div className="div-57">
-                                <div className="div-58">view info</div>
-                                <img
-                                    loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/726b654c7d06ac6a442f8f23e9703ffd848a8bca0f5185c254642ecf45f42bf7?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                                    className="img-19"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="div-59">
-                        <img
-                            loading="lazy"
-                            srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                            className="img-20"
-                        />
-                        <div className="div-60">
-                            <div className="div-61">
-                                <div className="div-62">Agbaje Ade</div>
-                                <div className="div-63">
-                                    <img
-                                        loading="lazy"
-                                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/9d7c2da79810e2081a3798a581f78e8db857bf24598adb0122fa7755ec1f482d?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                                        className="img-21"
-                                    />
-                                    <div className="div-64">4.8</div>
-                                </div>
-                            </div>
-                            <div className="div-65">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. At eget
-                                iaculis eget eget neque, posuere quis placerat arcu.
-                            </div>
-                            <div className="div-66">
-                                <div className="div-67">view info</div>
-                                <img
-                                    loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/726b654c7d06ac6a442f8f23e9703ffd848a8bca0f5185c254642ecf45f42bf7?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                                    className="img-22"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="div-68">
-                        <img
-                            loading="lazy"
-                            srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/a7b4b916b285c92481ad9a2f1a8d0f627a4dcac7a7302a98600389adc4fbb900?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                            className="img-23"
-                        />
-                        <div className="div-69">
-                            <div className="div-70">
-                                <div className="div-71">Agbaje Ade</div>
-                                <div className="div-72">
-                                    <img
-                                        loading="lazy"
-                                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/e1c32545c062faf74ab247b91c96bbff2234aaeda53e35826c857741d2c7de90?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                                        className="img-24"
-                                    />
-                                    <div className="div-73">4.8</div>
-                                </div>
-                            </div>
-                            <div className="div-74">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. At eget
-                                iaculis eget eget neque, posuere quis placerat arcu.
-                            </div>
-                            <div className="div-75">
-                                <div className="div-76">view info</div>
-                                <img
-                                    loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/cd5c25f61e4a11e5d534fdfa394bc1ef7495ef3e981ea5ba35cc3049aa9cea8b?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
-                                    className="img-25"
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
                 <div className="div-77">
                     <img

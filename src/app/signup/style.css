@@ -4,6 +4,16 @@
 .error-message {
 color: red;
 }
+.password-input{
+   display: flex;
+   height: 100%;
+   width: 100%;
+}
+.password-input div{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
 :root{
 
  --pop-up-text-mobile-font-size: 8px;
@@ -111,7 +121,7 @@ color: red;
       flex-direction: column;
       box-sizing: border-box;
    }
-   .sign-up-page-client button {
+   .sign-up-page-client .button {
       width: 290px;
    }
    .prop-form{

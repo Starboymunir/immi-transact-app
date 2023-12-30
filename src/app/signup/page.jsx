@@ -198,7 +198,7 @@ export default function SignUpPageClient() {
                 {errors.email && <span className="error-message">{errors.email}</span>}
                 <PropertyFormWrapper
                   className={`prop-form first button-3 ${errors.password ? "error" : ""}`}
-                  property1="form-field-default"
+                  property1="password"
                   text="Password"
                   onChange={(value) => handleInputChange("password", value)}
                 />
@@ -206,14 +206,14 @@ export default function SignUpPageClient() {
 
                 <PropertyFormWrapper
                   className={`prop-form first button-4 ${errors.confirmPassword ? "error" : ""}`}
-                  property1="form-field-default"
+                  property1="password"
                   text="Confirm password"
                   onChange={(value) => handleInputChange("confirmPassword", value)}
                 />
 
 
                 <div className="frame-2">
-                  <div className="rectangle" />
+                <input className="rectangle" type="checkbox" />
                   <p className="text-wrapper-2">
                     I agree to the Immi-Transact User Agreement and Privacy Policy.
                   </p>

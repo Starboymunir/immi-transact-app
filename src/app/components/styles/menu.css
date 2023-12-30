@@ -6,8 +6,8 @@
     display: flex;
     width: 100%;
     padding:10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     justify-content: space-between;
     object-fit: contain;
 

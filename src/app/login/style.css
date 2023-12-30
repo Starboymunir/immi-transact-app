@@ -169,7 +169,7 @@
       .sign-up-page-client .frame-3 .text-wrapper-3{
          width: 100%;
       }
-      .sign-up-page-client .frame-3 .text-wrapper-4{
+      .sign-up-page-client .frame-3 .text-wrapper-40{
          display: flex;
          justify-content: center;
       }
@@ -711,7 +711,7 @@
     width: fit-content;
     }
     
-    .sign-up-page-client .text-wrapper-4 {
+    .sign-up-page-client .text-wrapper-40 {
     color: var(--black);
     font-family: "Work Sans-Bold", Helvetica;
     font-size: 13px;

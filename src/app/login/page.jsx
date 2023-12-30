@@ -164,10 +164,12 @@ export default function LoginPageClient() {
 
               <div className="frame-3">
                 <div className="remember-me">
-                  <div className="rectangle" />
+                 
+                    <input className="rectangle" type="checkbox" />
+                
                   <div className="text-wrapper-3" >Remember Me ?</div>
                 </div>
-                <div className="text-wrapper-4" onClick={handleForgotPassword}>Forgot Password</div>
+                <div className="text-wrapper-40" onClick={handleForgotPassword}>Forgot Password</div>
               </div>
               <div className="bottom">
                 <div className="frame-b">
@@ -175,7 +177,7 @@ export default function LoginPageClient() {
                   <div className="text-wrapper-2">Dont have an account</div>
                   <img className="line2" alt="Line" src="line-2.svg" />
                 </div>
-                <Link href="signup">
+                <Link href="joinpage">
                   <Button
                     className="btn-sign-up"
                     property1="secondary"
