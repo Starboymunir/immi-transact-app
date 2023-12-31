@@ -10,6 +10,7 @@ import Heade from "./components/head";
 import "./components/styles/buttons.css";
 import HomepageFooter from "./HomepageFooter";
 import "./components/styles/hero-section.css"
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -106,7 +107,9 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
+                <Link href="../signup">
                 <div className="text-wrapper-6">Sign up</div>
+                </Link>
               </div>
               <div className="frame-6">
                 <div className="overlap-group-wrapper">
