@@ -107,7 +107,7 @@ const router = useRouter()
             alt="Material symbols"
           />
             <div>Home</div>
-            <Link href="../faq"><div>About Us</div></Link>
+            <Link href="../login"><div>Log In</div></Link>
             <Link href="../contact"><div>Contact Us</div></Link>
             </div>
           </>
