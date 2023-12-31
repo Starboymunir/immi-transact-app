@@ -14,6 +14,8 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 export default function HomepageSignIn() {
 
     const [users, setUsers] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -46,24 +48,10 @@ export default function HomepageSignIn() {
 
                     For people seeking legal services of&nbsp;&nbsp;Attorneys for US permanent residency and citizenship applications.
                 </p>
-                <Button className="button-4" property1="primary" text="APPLY FOR GREEN CARD" textClassName="button-5" /> <div className="frame-7">
-                {users.slice(0, 3).map((user, index) => (
-                        <ProfileCardFrame
-                            key={index}
-                            username={user.username}
-                            maskGroup={user.imageUrl}
-                            rating={user.rating}
-                            shortProfile={user.shortProfile}
-                            buttonTextClassName="profile-card-frame-instance"
+                <Link href="../clientApplication"><Button className="button-4" property1="primary" text="APPLY FOR GREEN CARD" /></Link>
 
-                            memoryMessage={`memory-message-${index + 3}.svg`}
-                            uisFavorite={`uis-favorite-${index + 2}.svg`}
-                            userEmail={user.email}
-                        />
-                    ))}
-                </div>
                 <div className="frame-8">
-                {users.slice(0, 3).map((user, index) => (
+                    {users.slice(0, 3).map((user, index) => (
                         <ProfileCardFrame
                             key={index}
                             username={user.username}
@@ -78,11 +66,35 @@ export default function HomepageSignIn() {
                     ))}
                 </div>
                 <div className="text-wrapper-5">Top rated clients</div>
+                <div className="frame-7">
+                    {users
+                        .filter(user => user.username.toLowerCase().includes(searchTerm.toLowerCase()))
+                        .slice(0, 3)
+                        .map((user, index) => (
+                            <ProfileCardFrame
+                                key={index}
+                                username={user.username}
+                                maskGroup={user.imageUrl}
+                                rating={user.rating}
+                                shortProfile={user.shortProfile}
+                                buttonTextClassName="profile-card-frame-instance"
+                                memoryMessage={`memory-message-${index + 3}.svg`}
+                                uisFavorite={`uis-favorite-${index + 2}.svg`}
+                                userEmail={user.email}
+                            />
+                        ))}
+                </div>
+
                 <div className="text-wrapper-6">Clients near you</div>
                 <div className="frame-9">
                     <div className="frame-10">
-                        <img className="img-2" alt="Material symbols" src="image.svg" />
-                        <div className="text-3">Search</div>
+                        <img className="img-2" alt="Material symbols" src="material-symbols-search.svg" />
+                        <input
+                            placeholder="Search"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+
                     </div>
                     <img className="img-2" alt="Mi filter" src="mi-filter.svg" />
                 </div>
@@ -110,6 +122,24 @@ export default function HomepageSignIn() {
                 <div className="text-wrapper-9">Top rated attorneys</div>
                 <div className="text-wrapper-10">Attorneys near you</div>
                 <div className="frame-10">
+                    {users
+                        .filter(user => user.username.toLowerCase().includes(searchTerm.toLowerCase()))
+                        .slice(0, 5)
+                        .map((user, index) => (
+                            <ProfileCardFrame
+                                key={index}
+                                username={user.username}
+                                maskGroup={user.imageUrl}
+                                rating={user.rating}
+                                shortProfile={user.shortProfile}
+                                buttonTextClassName="profile-card-frame-instance"
+                                memoryMessage={`memory-message-${index + 3}.svg`}
+                                uisFavorite={`uis-favorite-${index + 2}.svg`}
+                                userEmail={user.email}
+                            />
+                        ))}
+                </div>
+                <div className="frame-11">
                     {users.slice(0, 5).map((user, index) => (
                         <ProfileCardFrame
                             key={index}
@@ -124,26 +154,16 @@ export default function HomepageSignIn() {
                         />
                     ))}
                 </div>
-                <div className="frame-11">
-                {users.slice(0, 5).map((user, index) => (
-                        <ProfileCardFrame
-                            key={index}
-                            username={user.username}
-                            maskGroup={user.imageUrl}
-                            rating={user.rating}
-                            shortProfile={user.shortProfile}
-                            buttonTextClassName="profile-card-frame-instance"
-
-                            memoryMessage={`memory-message-${index + 3}.svg`}
-                            uisFavorite={`uis-favorite-${index + 2}.svg`}
-                        />
-                    ))}
-                </div>
                 <div className="frame-12">
-                    <button className="button-5">
-                        <img className="img-3" alt="Material symbols" src="material-symbols-search.svg" />
-                        <div className="text-3">Search for Attorneys</div>
-                    </button>
+                <div className="button-5">
+                        <img className="img-2" alt="Material symbols" src="material-symbols-search.svg" />
+                        <input
+                            placeholder="Search"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+
+                    </div>
                     <div className="frame-13">
                         <div className="frame-14">
                             <div className="frame-15">

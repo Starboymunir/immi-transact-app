@@ -1,3 +1,7 @@
+input{
+  border: none;
+  outline: none;
+}
 @media only screen and (min-width: 780px) {
     .homepage-sign-in {
     background-color: #ffffff;
@@ -860,14 +864,17 @@
             }
             
             .homepage-sign-in .frame-7 {
-            align-items: flex-start;
-            display: inline-flex;
-            gap: 16px;
-            left: 24px;
-            overflow-x: scroll;
-            position: absolute;
-            top: 451px;
+              justify-content: space-between;
+              overflow-x: auto;
+              align-self: stretch;
+              display: flex;
+              margin-top: 41px;
+              gap: 20px;
+              padding: 0 20px;
+              position: relative;
+            
             }
+            
             
             .homepage-sign-in .profile-card-frame-instance {
             font-family: "Work Sans-Bold", Helvetica !important;
@@ -879,13 +886,16 @@
             }
             
             .homepage-sign-in .frame-8 {
-            align-items: flex-start;
-            display: inline-flex;
-            gap: 16px;
-            left: 24px;
-            overflow-x: scroll;
-            position: absolute;
-            top: 916px;
+              justify-content: space-between;
+              overflow-x: auto;
+              align-self: stretch;
+              display: flex;
+              margin-top: 41px;
+              gap: 20px;
+              padding: 0 20px;
+              position: relative;
+             
+            top: 820px;
             }
             
             .homepage-sign-in .text-wrapper-5 {

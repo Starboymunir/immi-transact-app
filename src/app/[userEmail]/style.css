@@ -916,6 +916,7 @@
             display: flex;
             padding-right: 80px;
             gap: 3px;
+            box-sizing: border-box;
         }
 
         .img-6 {

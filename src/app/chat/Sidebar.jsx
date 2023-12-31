@@ -120,9 +120,12 @@ const Sidebar = ({ redirectUrl }) => {
       // Fetch and set the chats from the snapshot
       const fetchChatsFromSnapshot = () => {
         if (snapshot) {
-          const fetchedChats = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+          const fetchedChats = snapshot.docs
+            .map((doc) => ({ id: doc.id, ...doc.data() }))
+            .filter((chat) => chat.users.includes(authService.user.email)); // Filter only chats involving the current user
           setChats(fetchedChats);
         }
+    
       };
   
       fetchChatsFromSnapshot();

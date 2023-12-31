@@ -65,11 +65,12 @@ export default function LoginPageClient() {
       const usersCollection = collection(db, 'User');
       const usersSnapshot = await getDocs(usersCollection);
       const usersData = usersSnapshot.docs.map(doc => doc.data());
+     
 
       const userEmail = formValues.email.toLowerCase();
-      const currentUser = usersData.find(user => user.email.toLowerCase() === userEmail);
+      const currentUser = usersData?.find(user => user?.email?.toLowerCase() === userEmail);
 
-      const dashboardPage = currentUser?.loginType === 'attorney' ? '/dashboard_attorney' : '/dashboard';
+      const dashboardPage = currentUser?.loginType == 'Client' ? '/dashboard' : '/dashboard-attorney';
 
       router.push(dashboardPage);
     } catch (err) {
@@ -137,7 +138,7 @@ export default function LoginPageClient() {
 
               <form onSubmit={handleFormSubmit}>
                 <PropertyFormWrapper
-                  className={`prop-form first button-2 ${errors.email ? "error" : ""}`}
+                  className={`prop-form first  ${errors.email ? "error" : ""}`}
                   property1="form-field-default"
                   text="Email address"
                   onChange={(value) => handleInputChange("email", value)}
@@ -145,11 +146,12 @@ export default function LoginPageClient() {
                 {errors.email && <p className="error-message">{errors.email}</p>}
                 <PropertyFormWrapper
                   className={`prop-form first button-3 ${errors.password ? "error" : ""}`}
-                  property1="form-field-default"
+                  property1="password"
                   text="Password"
                   onChange={(value) => handleInputChange("password", value)}
                 />
-                {errors.password && <p className="error-message">{errors.password}</p>}
+                {errors.password && <span className="error-message">{errors.password}</span>}
+
                 {errors.login && <p className="error-message">{errors.login}</p>}
                 <Link href="../verification">
                   <Button

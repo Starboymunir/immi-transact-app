@@ -91,13 +91,13 @@ export default function ClientProfile() {
 
                     </div>
                     <div className="frame-4">
-                        <div className="text-wrapper-4">Bio</div>
+                        <div className="text-wrapper-4a">Bio</div>
                         <p className="p">
                             {userData.about}
                         </p>
                     </div>
                     <div className="frame-5">
-                        <div className="text-wrapper-4">Services</div>
+                        <div className="text-wrapper-4a">Services</div>
                         <div className="frame-6">
                             {greenCards.map((greenCard, index) => (
                                 <Button
@@ -186,7 +186,7 @@ export default function ClientProfile() {
                                 <div className="group" style= {profilePic}>
                                     <img className="ic-baseline-plus" alt="Ic baseline plus" src="ic-baseline-plus.svg" />
                                 </div>
-                                <div className="text-wrapper-4">{userData.username}</div>
+                                <div className="text-wrapper-4a">{userData.username}</div>
                             </div>
                             <div className="text-wrapper-5">Arizona, USA</div>
                         </div>

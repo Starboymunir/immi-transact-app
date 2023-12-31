@@ -440,11 +440,11 @@ color: red;
     border: 0.0078vw solid;
     border-color: var(--grey-1);
     border-radius: 1.554vw;
-    height: 102vh;
+    height: 800px;
     display: flex;
     flex-direction: row;
     margin: auto;
-    max-width: 56.5vw;
+    width: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -454,9 +454,9 @@ color: red;
     height: 2.5vh;
     display: flex;
     flex-direction: row;
-    margin-top: 3%;
-    margin-left:3%;
-    margin-bottom: 10%;
+    margin-top: 20%;
+    margin-left:10%;
+    margin-bottom: 30%;
     width: 22.94vh;
     }
     

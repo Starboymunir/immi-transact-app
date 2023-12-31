@@ -10,9 +10,13 @@ import "./style.css";
 import "../globals.css";
 import Link from "next/link";
 import authService from "../context/AuthContext";
-import { query, where, getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firestore';
+import {useCollection} from 'react-firebase-hooks/firestore'
+import { query, where, getFirestore, collection, doc, getDocs, getDoc, addDoc } from 'firebase/firestore';
+
 
 import { useEffect, useState } from "react";
+import { db } from "../firebaseConfig";
+
 const decodeEmail = (encodedEmail) => {
     try {
         const decodedEmail = decodeURIComponent(encodedEmail);
@@ -24,10 +28,70 @@ const decodeEmail = (encodedEmail) => {
 };
 
 
+export default function AttorneyProfile() {
+    const user = authService.user;
+const [snapshot, loading, error] = useCollection(collection(db, "chats"));
+const chats = snapshot?.docs.map(doc => ({id: doc.id, ...doc.data()}))
 
-export default function HomepageSignIn() {
+    const router = useRouter();
+  const { userEmail } = useParams();
 
-    const [users, setUsers] = useState([]);
+  // Decode the email using the decodeEmail function
+  const decodedEmail = decodeEmail(userEmail);
+  const [userData, setUserData] = useState({
+    username: "",
+    about: "",
+    imageUrl: "",
+});
+
+const [greenCards, setGreenCards] = useState([]);
+
+useEffect(() => {
+    console.log('Inside useEffect');
+    // Fetch user data from Firestore
+    const fetchUserData = async () => {
+        try {
+          const user = authService.user;
+          const userCollectionRef = collection(getFirestore(), 'User');
+          const q = query(userCollectionRef, where('email', '==', decodedEmail));
+          const querySnapshot = await getDocs(q);
+      
+          if (!querySnapshot.empty) {
+            // Since there should be only one document with the specified email, use the first one
+            const userDataFromFirestore = querySnapshot.docs[0].data();
+            setUserData(userDataFromFirestore);
+            console.log('Fetched user data:', userDataFromFirestore);
+          } else {
+            console.log('User document does not exist');
+          }
+        } catch (error) {
+          console.error('Error fetching user data:', error.message);
+        }
+      };
+      
+
+    // Fetch green cards from Firestore
+    const fetchGreenCards = async () => {
+        try {
+            const user = authService.user;
+            const greenCardsDocRef = doc(collection(getFirestore(), 'jobs_created'), decodedEmail);
+            const greenCardsDoc = await getDoc(greenCardsDocRef);
+
+            if (greenCardsDoc.exists()) {
+                const greenCardsFromFirestore = greenCardsDoc.data().green_cards || [];
+                setGreenCards(greenCardsFromFirestore);
+                console.log(greenCardsFromFirestore)
+            }
+        } catch (error) {
+            console.error('Error fetching green cards:', error.message);
+        }
+    };
+
+    fetchUserData();
+    fetchGreenCards();
+}, []);
+
+const [users, setUsers] = useState([]);
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -40,10 +104,25 @@ export default function HomepageSignIn() {
 
         fetchUsers();
     }, []);
-om "./ProfileCardFrame";
-import "./style.css";
+const profilePic = {
+    backgroundImage: `url(${userData.imageUrl})`
+};
 
-export default function AttorneyProfile() {
+const chatExists = email => chats?.find(chat => chat.users.includes(user.email) && chat.users.includes(email));
+
+
+const newChat = async () => {
+    const user = authService.user;
+    const myEmail= user.email 
+    if (!chatExists(decodedEmail)){
+    await addDoc(collection(db, "chats"), {users: [myEmail, decodedEmail]})
+    router.push(`/chat`)
+    
+}
+else{
+    router.push(`/chat`)
+}
+}
     return (
         <div className="attorney-profile">
 
@@ -60,7 +139,7 @@ export default function AttorneyProfile() {
                 />
                 <img
                     loading="lazy"
-                    srcSet= {userData.imageUrl}
+                    srcSet= {userData?.imageUrl}
                  className="img-3"
                  alt="imageprof"
                 />
@@ -74,14 +153,14 @@ export default function AttorneyProfile() {
                                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/ca726241a7df1b23c2ff049490255ac3840faa7d4de51b7cec6c38966e5f5229?apiKey=1504e5e6f32d49db86245656e24c0c9a&"
                                     className="img-4"
                                 />
-                                <div className="div-12">4.5</div>
+                                <div className="div-12">{userData.rating}</div>
                                 <div className="div-13">(2 reviews)</div>
                             </div>
                         </div>
                         <div className="div-14">Illinois, USA</div>
                     </div>
                     <div className="div-15">
-                        <div className="div-16">Contact</div>
+                        <div className="div-16" onClick={() => newChat()}>Contact</div>
                         <img
                             loading="lazy"
                             src="https://cdn.builder.io/api/v1/image/assets/TEMP/4627f4ef68191c12de6da18143bb2d6c9e482cf4e9159f083b24a0bf30432624?apiKey=1504e5e6f32d49db86245656e24c0c9a&"

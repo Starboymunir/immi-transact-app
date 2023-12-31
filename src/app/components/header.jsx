@@ -7,19 +7,44 @@ import Link from "next/link";
 import Searchbar from './Searchbar'; 
 import authService from "../context/AuthContext";
 import { searchUsers } from "./utils/Search"
+import { getFirestore, collection, doc, setDoc, query, orderBy, limit, getDocs, where } from 'firebase/firestore';
 
 export const Header = () => {
-  const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState({
+    username: "",
+    about: "",
+    imageUrl: "",
+});
+
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const router = useRouter();
+  const user = authService.user;
+  const fetchUserData = async () => {
+    try {
+      const user = authService.user;
+      const userCollectionRef = collection(getFirestore(), 'User');
+      const q = query(userCollectionRef, where('email', '==', user.email));
+      const querySnapshot = await getDocs(q);
+     
+  
+      if (!querySnapshot.empty) {
+        // Since there should be only one document with the specified email, use the first one
+        const userDataFromFirestore = querySnapshot.docs[0].data();
+        setUserData(userDataFromFirestore);
+       
+      } else {
+        
+        console.log('User document does not exist');
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error.message);
+    }
+  };
+  fetchUserData();
 
-  useEffect(() => {
-    const unsubscribe = authService.onAuthStateChanged((authUser) => {
-      setUser(authUser);
-    });
 
-    return () => unsubscribe();
-  }, []);
+
+  
 
   const handleLogout = async () => {
     await authService.signOut();
@@ -96,7 +121,7 @@ export const Header = () => {
               <img
                 className="mask-group"
                 alt="Mask group"
-                src={user.photoURL}
+                src={userData?.imageUrl}
               />
             </div>
           )}

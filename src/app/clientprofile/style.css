@@ -127,7 +127,7 @@
     width: 32px;
     }
     
-    .client-profile .text-wrapper-4 {
+    .client-profile .text-wrapper-4a {
     color: #000000;
     font-family: var(--header-3-font-family);
     font-size: var(--header-3-font-size);
@@ -389,15 +389,20 @@
         background-color: var(--white);
         height: 1642px;
         position: relative;
-        width: 430px;
+      
         }
         
         .client-profile .group {
-        height: 32px;
-        left: 24px;
-        position: absolute;
-        top: 24px;
-        width: 382px;
+
+        
+        width: 375px;
+        margin: auto;
+        box-sizing: border-box;
+        height: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         }
         
         .client-profile .mobile-header {
@@ -435,9 +440,7 @@
         display: inline-flex;
         flex-direction: column;
         gap: 16px;
-        left: 78px;
-        position: absolute;
-        top: 96px;
+        ;
         }
         
         .client-profile .frame-3 {
@@ -501,15 +504,15 @@
         display: flex;
         flex-direction: column;
         gap: 8px;
-      
+        width: 330px;
+        margin-bottom: 40px;
+        margin-top: 40px;
         padding: 20px 16px;
-        position: absolute;
-        top: 410px;
-        width: 382px;
+       
         box-sizing: border-box;
         }
         
-        .client-profile .text-wrapper-4 {
+        .client-profile .text-wrapper-4a {
         align-self: stretch;
         color: #000000;
         font-family: var(--header-3-font-family);
@@ -543,9 +546,11 @@
         flex-direction: column;
         gap: 16px;
         padding: 20px 8px 20px 16px;
-        position: absolute;
-        top: 726px;
-        width: 382px;
+        width: 330px;
+        height: 700px;
+        margin-bottom: 40px;
+        margin-top: 40px;
+        box-sizing: border-box;
         box-sizing: border-box;
         }
         
@@ -588,15 +593,16 @@
         gap: 40px;
         overflow-y: scroll;
         padding: 20px 0px;
-        position: absolute;
-        top: 1150px;
-        width: 382px;
+        width: 350px;
+        position: relative;
+        top: 500px;
+        right: 29px;
         }
         
         .client-profile .group-2 {
         height: 203px;
         position: relative;
-        width: 375px;
+        width: 100%;
         }
         
         .client-profile .group-3 {
@@ -693,18 +699,20 @@
         font-size: var(--body-text-font-size);
         font-style: var(--body-text-font-style);
         font-weight: var(--body-text-font-weight);
-        left: 11px;
+  
         letter-spacing: var(--body-text-letter-spacing);
         line-height: var(--body-text-line-height);
         position: absolute;
         top: 71px;
-        width: 362px;
+        padding: 5px;
+        box-sizing: border-box;
+        width: 100%;
         }
         
         .client-profile .group-4 {
         height: 137px;
         position: relative;
-        width: 375px;
+        width:100%;
         }
     .div-2{
         display: none;
