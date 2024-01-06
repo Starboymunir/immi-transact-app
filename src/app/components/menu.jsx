@@ -84,7 +84,7 @@ const router = useRouter()
               </div>
             </div>
             <div className=" menu-frame-3" onClick={handleLogout}>
-              <div className="text-wrapper-2">Logout</div>
+              <div className="text-wrapper">Logout</div>
               </div>
             </div>
             </div>
@@ -106,7 +106,7 @@ const router = useRouter()
             src={state.isOpen ? "material-symbols-light-close.svg" : "material-symbols-light-close.svg"}
             alt="Material symbols"
           />
-            <div>Home</div>
+            <Link href="../../"><div>Home</div></Link>
             <Link href="../login"><div>Log In</div></Link>
             <Link href="../contact"><div>Contact Us</div></Link>
             </div>

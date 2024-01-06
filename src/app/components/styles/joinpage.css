@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+.rectangle.clicked{
+  border: none;
+}
+
 @media only screen and (min-width: 780px) {
 .group {
     height: 187px;
@@ -68,15 +72,7 @@
     
     }
     
-    .group .default-att-card {
-    border: 1px solid;
-    border-color: var(--grey-1);
-    }
-    
-    .group .hover-att-card {
-    border: 2px solid;
-    border-color: var(--black);
-    }
+  
 }
 @media only screen and (max-width: 600px) {
     .group {
@@ -143,12 +139,12 @@
         
         }
         
-        .group .default-att-card {
-        border: 1px solid;
+        .group.default-att-card {
+        border: 2px solid;
         border-color: var(--grey-1);
         }
         
-        .group .hover-att-card {
+        .group.hover-att-card {
         border: 2px solid;
         border-color: var(--black);
         }

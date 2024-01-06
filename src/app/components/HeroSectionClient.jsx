@@ -25,16 +25,18 @@ export const HeroSectionClient = ({ property1, className }) => {
             <div className="div" />
           </div>
           <div className="frame-2">
-          <div className="frame-2-left">
-          <Menu img="line-2.svg" line="line-2.svg" line1="line-2.svg" property1="default" />
-            <img
-              className="asset"
-              alt="Asset"
-              src={property1 === "hero-section-client" ? "asset-9ldpi-1-2.svg" : "asset-9ldpi-1-2.svg"}
-            />
+            <div className="frame-2-left">
+              <Menu img="line-2.svg" line="line-2.svg" line1="line-2.svg" menuType="default" />
+              <img
+                className="asset"
+                alt="Asset"
+                src={property1 === "hero-section-client" ? "asset-9ldpi-1-2.svg" : "asset-9ldpi-1-2.svg"}
+              />
             </div>
             <div className="frame-2-right">
-              Sign up
+              <Link href="../signup">
+                Sign up
+              </Link>
             </div>
             <div className="frame-3">
               <div className={`text-wrapper property-1-0-${property1}`}>Home</div>
@@ -61,10 +63,10 @@ export const HeroSectionClient = ({ property1, className }) => {
             </p>
             <div className="hero-btn">
               <Button
-              className="button-2"
-              property1="primary"
-              text="APPLY FOR GREEN CARD"
-            />
+                className="button-2"
+                property1="primary"
+                text="APPLY FOR GREEN CARD"
+              />
               <Button
                 className="hero-section-client class"
                 property1="secondary"

@@ -8,8 +8,10 @@
     padding:10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     object-fit: contain;
+    
 
     
     }
@@ -26,11 +28,17 @@
     }
     .default-menu {
     margin-right: 10px;
+    height: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     }
+  
     .menu-default{
         align-items: center;
         background-color: var(--white);
-        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         display: flex;
         flex-direction: column;
@@ -45,7 +53,7 @@
         font-weight: 700;
         box-sizing: border-box;
         justify-content: space-evenly;
-        z-index: 10;
+        z-index: 10000;
 
     }
     a{
@@ -315,6 +323,7 @@
         width: 100%;
         opacity: 1;
         box-sizing: border-box;
+        font-size: 20px;
         justify-content: space-between;
         z-index: 1000;
       }
@@ -376,7 +385,7 @@
       .open-other-pages .text-wrapper {
         color: var(--black);
         font-family: var(--small-text-font-family);
-        font-size: var(--small-text-font-size);
+        font-size: 15px;
         font-style: var(--small-text-font-style);
         font-weight: var(--small-text-font-weight);
         letter-spacing: var(--small-text-letter-spacing);
@@ -400,9 +409,9 @@
       }
       
       .open-other-pages .text-wrapper-2 {
-        color: var(--black);
+        color: var(--grey-1);
         font-family: var(--small-text-font-family);
-        font-size: var(--small-text-font-size);
+        font-size: 15px;
         font-style: var(--small-text-font-style);
         font-weight: var(--small-text-font-weight);
         letter-spacing: var(--small-text-letter-spacing);
