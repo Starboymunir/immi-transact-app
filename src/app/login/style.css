@@ -10,6 +10,12 @@
    align-items: center;
 
  }
+ .error-message{
+   color: red;
+   font-size: 12px;
+   margin-top: 5px;
+ 
+ }
 @media only screen and (max-width: 600px) {
 
    .sign-up-page-client {
