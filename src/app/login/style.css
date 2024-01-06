@@ -16,6 +16,9 @@
    margin-top: 5px;
  
  }
+ input[type=checkbox] {
+   accent-color: black;
+ }
 @media only screen and (max-width: 600px) {
 
    .sign-up-page-client {

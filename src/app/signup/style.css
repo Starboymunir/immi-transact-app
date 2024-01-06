@@ -4,6 +4,9 @@
 .error-message {
 color: red;
 }
+input[type=checkbox] {
+   accent-color: black;
+ }
 .password-input{
    display: flex;
    height: 100%;
@@ -465,7 +468,9 @@ color: red;
    }
 
    /* Add these styles to your existing CSS or create a new CSS file */
-
+   input[type=checkbox] {
+      accent-color: black;
+    }
 .popup {
    position: fixed;
    top: 0;
