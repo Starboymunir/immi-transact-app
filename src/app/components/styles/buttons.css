@@ -106,7 +106,7 @@ html{
   
   .button .text {
     font-family: var(--button-text-font-family);
-    font-size: var(--button-text-font-size);
+    font-size: 10px;
     font-style: var(--button-text-font-style);
     font-weight: var(--button-text-font-weight);
     letter-spacing: var(--button-text-letter-spacing);

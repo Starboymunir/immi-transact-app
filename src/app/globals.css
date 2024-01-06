@@ -89,7 +89,7 @@ body {
   --header-1-letter-spacing: -1.28px;
   --header-1-line-height: normal;
   --header-2-font-family: "Work Sans", sans-serif;
-  --header-2-font-size: 2.5rem;
+  --header-2-font-size: 2rem;
   --header-2-font-style: normal;
   --header-2-font-weight: 700;
   --header-2-letter-spacing: -0.8px;
@@ -203,7 +203,7 @@ html {
 .homepage .text-wrapper-4 {
   color: var(--grey-4);
   font-family: var(--header-2-font-family);
-  font-size: var(--header-2-font-size);
+  font-size: 2rem;
   font-style: var(--header-2-font-style);
   font-weight: var(--header-2-font-weight);
   padding-left: 5%;
@@ -216,7 +216,7 @@ html {
 .homepage .frame-5 {
   align-items: center;
   display: inline-flex;
-  gap: 80px;
+  gap: 40px;
 }
 
 .homepage .overlap-group-wrapper {
@@ -231,13 +231,15 @@ html {
   position: relative;
   max-width: 90px;
 }
-
+.stepps{
+  width: 100%;
+}
 .homepage .ellipse-3 {
   background-color: var(--hover);
   border-radius: 45px;
-  max-height: 90px;
+  height: 60px;
   opacity: 0.5;
-  max-width: 90px;
+  width: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -271,7 +273,7 @@ html {
 .homepage .frame-6 {
   align-items: center;
   display: inline-flex;
-  gap: 80px;
+  gap: 40px;
 }
 
 .homepage .text-wrapper-7 {
@@ -290,14 +292,14 @@ html {
 .homepage .frame-7 {
   align-items: center;
   display: inline-flex;
-  gap: 80px;
+  gap: 40px;
 
 }
 
 .homepage .frame-8 {
   align-items: center;
   display: inline-flex;
-  gap: 80px;
+  gap: 40px;
 }
 
 .homepage .text-wrapper-8 {
@@ -315,7 +317,7 @@ html {
   max-height: 811px;
   max-width: 580px;
   box-sizing: border-box;
-  border-top-right-radius: 200px;
+  border-top-right-radius: 150px;
   overflow: hidden;
 }
 
@@ -651,11 +653,18 @@ html {
   flex-direction: column;
   position: relative;
   margin: auto;
+  margin-top: 40px;
 }
 
 @media only screen and (max-width: 600px) {
   html {
     font-size: 12px;
+  }
+  button.primary.design-component-instance-node{
+    width: 238px;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .homepage .text-wrapper-12 {
@@ -724,7 +733,7 @@ html {
   }
 
   .homepage .frame-20 {
-    width: 382px;
+    width: 360px;
     font-size: 12px;
     margin-top: 5%;
     margin-bottom: 5%;
@@ -741,7 +750,7 @@ html {
     margin-top: -1px;
     position: relative;
     text-align: center;
-    width: 343px;
+    width: 280px;
     margin-top: 5%;
     margin-bottom: 5%;
 
@@ -822,9 +831,9 @@ html {
   }
 
   .text-wrapper-4 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     display: inline-block;
-    width: 380px;
+    width: 300px;
     height: 80px;
     box-sizing: border-box;
     overflow-wrap: break-word;
@@ -1092,7 +1101,7 @@ html {
   font-family: "Work Sans-Italic", Helvetica;
   font-style: italic;
   font-weight: 700;
-  margin-top: 50px;
+
 }
 
 .homepage .frame-instance {}
@@ -1471,6 +1480,7 @@ body {
     gap: 80px;
     position: relative;
     margin: auto;
+    margin-top: 20px;
   }
 
   .homepage .frame-20 {
